@@ -1,0 +1,71 @@
+/* custom scss rules */
+
+body {
+  height: 100vh;
+  background-color: $body-color; 
+}
+
+/* Flex modifiers */
+.sa-row-reverse {
+  flex-direction: row-reverse;
+}
+.sa-flex-start {
+  justify-content: flex-start;
+}
+
+/* Top Navbar */
+.nav {
+  background-color: $top-navbar-color;
+  box-shadow: 0 3px 6px rgba(0,0,0,.3);
+  height: $top-navbar-height;
+}
+.nav-fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+a.nav-item {
+  color: $top-navbar-link-color; 
+}
+
+/* Main Wrapper */
+.sa-main-wrapper {
+  padding-top: $top-navbar-height;
+}
+
+/* Sidebar */
+.sa-sidebar {
+  position: fixed;
+  top: $top-navbar-height;
+  bottom: 0;
+  width: $sidebar-width;
+  padding-top: 1rem;
+  height: calc(100% - #{$top-navbar-height});
+  background-color: $sidebar-color;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); 
+
+  & > .menu-label {
+    padding: 0 8px;
+  }
+  & > .menu-list {
+    padding: 0 10px;
+  }
+}
+// rules for sidebar when RTL is activated
+.sa-is-rtl {
+  right: 0;
+  direction: rtl;
+  & > .menu-list li ul {
+    border-left: none;
+    border-right: 1px solid #dbdbdb;
+    margin: 0.75em;
+    padding-left: 0;
+    padding-right: 0.75em;
+  }
+}
+
+/* Main content */
+.sa-main-content {
+  margin-right: $sidebar-width;
+  padding: 20px 20px;
+}

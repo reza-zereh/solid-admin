@@ -1,60 +1,66 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <h1></h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <!-- Fixed top navbar -->
+    <sa-navbar>
+      <template slot="nav-left">
+        <sa-nav-item to="/books">
+          <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma logo">
+        </sa-nav-item>
+      </template>
+
+      <template slot="nav-center">
+        <sa-nav-item>
+          <span class="icon">
+            <i class="fa fa-github"></i>
+          </span>
+        </sa-nav-item>
+      </template>
+
+      <template slot="nav-right">
+        <sa-nav-toggle></sa-nav-toggle>
+        <sa-nav-item>
+          <span class="icon">
+            <i class="fa fa-search"></i>
+          </span>
+        </sa-nav-item>
+      </template>
+    </sa-navbar>
+
+    <!-- wrapper for sidebar and main content -->
+    <div class="sa-main-wrapper">
+      <sa-sidebar></sa-sidebar>
+
+      <!-- Temp main content -->
+      <div class="sa-main-content">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla doloribus velit adipisci ullam vel, ipsa, perspiciatis consequatur excepturi aspernatur sunt itaque dolores neque ut fugiat esse nihil. Temporibus, delectus, quo!
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga iste eos quod animi reprehenderit quo obcaecati repellat dolorum perferendis in excepturi error inventore possimus, culpa ipsa quos, fugit officia at!
+        </p>
+      </div>
+    </div>
+    
   </div>
 </template>
 
 <script>
+import SaNavbar from './components/navbar/SaNavbar.vue';
+import SaNavItem from './components/navbar/SaNavItem.vue';
+import SaNavToggle from './components/navbar/SaNavToggle.vue';
+
+import SaSidebar from './components/sidebar/SaSidebar.vue';
+
 export default {
-  name: 'app',
-  data () {
+  components: {
+    'sa-navbar'    : SaNavbar,
+    'sa-nav-item'  : SaNavItem,
+    'sa-nav-toggle': SaNavToggle,
+    'sa-sidebar'   : SaSidebar
+  },
+
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+
     }
   }
 }
 </script>
-
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
-</style>
