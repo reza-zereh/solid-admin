@@ -1,44 +1,43 @@
 <template>
+  <!-- 
+    Main sidebar component. Automatically place right or left side of screen based on `window.isRtl` setting.
+    
+    NOTE: Except <sa-sidebar-label>, all other components should be placed within <sa-sidebar-menu> component.
+   -->
   <div class="" v-if="showSidebar">
-    <aside class="menu sa-sidebar" :class="{'sa-is-rtl': isRtl}">
-      <p class="menu-label">
-        General
-      </p>
-      <ul class="menu-list">
-        <li><a>Dashboard</a></li>
-        <li><a>Customers</a></li>
-      </ul>
-      <p class="menu-label">
-        Administration
-      </p>
-      <ul class="menu-list">
-        <li><a>Team Settings</a></li>
-        <li>
-          <a class="is-active">Manage Your Team</a>
-          <ul>
-            <li><a>Members</a></li>
-            <li><a>Plugins</a></li>
-            <li><a>Add a member</a></li>
-          </ul>
-        </li>
-        <li><a>Invitations</a></li>
-        <li><a>Cloud Storage</a></li>
-        <li><a>Authentication</a></li>
-      </ul>
-      <p class="menu-label">
-        Transactions
-      </p>
-      <ul class="menu-list">
-        <li><a>Payments</a></li>
-        <li><a>Transfers</a></li>
-        <li><a>Balance</a></li>
-      </ul>
+    <aside class="menu sa-sidebar" :class="{'sa-is-rtlsidebar': isRtl}">
+    
+      <sa-sidebar-label>General</sa-sidebar-label>
+      <sa-sidebar-menu>
+        <sa-sidebar-menuitem to="#1">DASHBOARD</sa-sidebar-menuitem>
+      </sa-sidebar-menu> 
+
+      <sa-sidebar-label>Administration</sa-sidebar-label> 
+      <sa-sidebar-menu>
+        <sa-sidebar-submenu heading="SOLID">
+          <sa-sidebar-menuitem>Foo</sa-sidebar-menuitem> 
+          <sa-sidebar-menuitem>Bar</sa-sidebar-menuitem> 
+        </sa-sidebar-submenu>
+      </sa-sidebar-menu>
+      
     </aside>
   </div>
 </template>
 
 <script>
+  import SaSidebarLabel from './SaSidebarLabel.vue';
+  import SaSidebarMenu from './SaSidebarMenu.vue';
+  import SaSidebarMenuItem from './SaSideMenuItem.vue';
+  import SaSidebarSubmenu from './SaSidebarSubmenu.vue';
+
   export default {
+    components: {
+      'sa-sidebar-label': SaSidebarLabel,
+      'sa-sidebar-menu': SaSidebarMenu,
+      'sa-sidebar-menuitem': SaSidebarMenuItem,
+      'sa-sidebar-submenu': SaSidebarSubmenu
+    },
+
     data() {
       return {
         isRtl: false,

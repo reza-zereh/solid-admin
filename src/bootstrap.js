@@ -15,4 +15,3 @@ window.showSidebar = true;
  */
 import '../node_modules/bulma/css/bulma.css';
 import './assets/sass/app.scss';
-

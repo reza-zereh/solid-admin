@@ -33,7 +33,9 @@ a.nav-item {
   padding-top: $top-navbar-height;
 }
 
-/* Sidebar */
+/* Sidebar's Rules
+* =====================================================================================================
+*/
 .sa-sidebar {
   position: fixed;
   top: $top-navbar-height;
@@ -52,7 +54,7 @@ a.nav-item {
   }
 }
 // rules for sidebar when RTL is activated
-.sa-is-rtl {
+.sa-is-rtlsidebar {
   right: 0;
   direction: rtl;
   & > .menu-list li ul {
@@ -64,8 +66,25 @@ a.nav-item {
   }
 }
 
-/* Main content */
+/* Main content 
+* ================================================================================
+*/
 .sa-main-content {
-  margin-right: $sidebar-width;
-  padding: 20px 20px;
+  padding: 26px;
+
+  // When sidebar is hidden
+  &.sa-content-nosidebar {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  // When main sidebar is active and RTL
+  &.sa-is-rtlcontent {
+    margin-right: $sidebar-width;
+  }
+
+  // When main sidebar is active and LTR
+  &.sa-is-ltrcontent {
+    margin-left: $sidebar-width;
+  }
 }
