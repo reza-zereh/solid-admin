@@ -1,4 +1,7 @@
 <template>
+  <!--
+    Primary sidebar's show/hide button.
+   -->
   <a class="nav-item" @click="toggleSidebar">
     <span class="icon" v-if="!isSidebarVisible">
       <i class="fa fa-bars"></i>

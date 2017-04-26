@@ -1,22 +1,38 @@
 <template>
+  <!-- 
+    Top navbar component
+
+    NOTE: All sub-components and childs must be placed directly here (No <slot>).
+  -->
   <nav class="nav nav-fixed">
-    <div class="nav-left">
-      <slot name="nav-left"></slot>
-    </div>
+    <sa-nav-useractions v-if="isRtl"></sa-nav-useractions>
+    <sa-nav-usertoggles v-if="!isRtl"></sa-nav-usertoggles>
 
     <div class="nav-center" :class="{'sa-row-reverse': isRtl}">
-      <slot name="nav-center"></slot>
+      <sa-navitem>
+        <span class="icon">
+          <i class="fa fa-github"></i>
+        </span>
+      </sa-navitem>
     </div>
 
-    <div class="nav-right" :class="{'sa-row-reverse': isRtl, 'sa-flex-start': isRtl}">
-      <slot name="nav-right"></slot>
-    </div>
+    <sa-nav-usertoggles v-if="isRtl"></sa-nav-usertoggles>
+    <sa-nav-useractions v-if="!isRtl"></sa-nav-useractions>
   </nav>
 </template>
 
 <script>
+  import SaNavItem from './SaNavItem.vue';
+  import SaNavUserActions from './SaNavUserActions.vue';
+  import SaNavUserToggles from './SaNavUserToggles.vue';
 
   export default {
+    components: {
+      'sa-navitem'        : SaNavItem,
+      'sa-nav-useractions': SaNavUserActions,
+      'sa-nav-usertoggles': SaNavUserToggles
+    },
+
     data() {
       return {
         isRtl: false
