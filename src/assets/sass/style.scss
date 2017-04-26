@@ -41,23 +41,58 @@ a.nav-item {
   top: $top-navbar-height;
   bottom: 0;
   width: $sidebar-width;
-  padding-top: 1rem;
+  // padding-top: 1rem;
   height: calc(100% - #{$top-navbar-height});
   background-color: $sidebar-color;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); 
 
-  & > .menu-label {
+  & .menu-label {
     padding: 0 8px;
   }
-  & > .menu-list {
+  & .menu-list {
     padding: 0 10px;
+  }
+
+  // Rules sidebar's userview section 
+  & .sa-userview {
+    margin-bottom: 24px;
+
+    & img {
+      max-width: none;
+    }
+    & .sa-userview-background {
+      overflow: hidden;;
+      z-index: -1;
+      height: $sidebar-userview-height;
+
+    }
+    & .sa-userview-profile {
+      position: absolute;
+      top: calc(#{$sidebar-userview-profile-size} / 2);
+
+      &.sa-profile-rtl {
+        right: calc(#{$sidebar-userview-profile-size} / 2);
+      }
+      &.sa-profile-ltr {
+        left: calc(#{$sidebar-userview-profile-size} / 2);
+      }
+      & .title, .subtitle {
+        color: $sidebar-userview-profile-color;
+      }
+
+      & img.sa-circle {
+        width: $sidebar-userview-profile-size;
+        height: $sidebar-userview-profile-size;
+        border-radius: 50%;
+      }
+    }
   }
 }
 // rules for sidebar when RTL is activated
 .sa-is-rtlsidebar {
   right: 0;
   direction: rtl;
-  & > .menu-list li ul {
+  & .menu-list li ul {
     border-left: none;
     border-right: 1px solid #dbdbdb;
     margin: 0.75em;
