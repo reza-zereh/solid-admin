@@ -1,5 +1,5 @@
 <template>
-  <!-- 
+  <!--
     Wrapper for toggle buttons (Sidebar, Search, etc.)
     if isRtl == true then located at right side of navbar
     otherwise located at left.
@@ -9,27 +9,25 @@
   <div :class="className">
     <sa-sidebar-toggle></sa-sidebar-toggle>
 
-    <sa-navitem>
-      <span class="icon">
-        <i class="fa fa-search"></i>
-      </span>
-    </sa-navitem>
+    <sa-searchbar-toggle></sa-searchbar-toggle>
   </div>
 </template>
 
 <script>
   import SaNavItem from './SaNavItem.vue';
   import SaNavSidebarToggle from './SaNavSidebarToggle.vue';
+  import SaSearchbarToggle from './SaSearchbarToggle.vue';
 
   export default {
     components: {
       'sa-navitem'       : SaNavItem,
-      'sa-sidebar-toggle': SaNavSidebarToggle
+      'sa-sidebar-toggle': SaNavSidebarToggle,
+      'sa-searchbar-toggle': SaSearchbarToggle
     },
 
     data() {
       return {
-        isRtl: false 
+        isRtl: false
       }
     },
 

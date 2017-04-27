@@ -5,7 +5,8 @@ body {
   background-color: $body-color;
 }
 
-/* Flex modifiers */
+/* Flex modifiers
+================================================================*/
 .sa-row-reverse {
   flex-direction: row-reverse;
 }
@@ -13,7 +14,8 @@ body {
   justify-content: flex-start;
 }
 
-/* Top Navbar */
+/* Top Navbar
+================================================================*/
 .nav {
   background-color: $top-navbar-color;
   box-shadow: 0 3px 6px rgba(0,0,0,.3);
@@ -69,14 +71,35 @@ body {
   }
 }
 
-/* Main Wrapper */
+/* Search Form
+================================================================ */
+.sa-search-nav {
+  height: $top-navbar-height;
+
+  & .sa-search-wrapper {
+    flex-grow: 1;
+  }
+  & input {
+    height: $top-navbar-height;
+    border-radius: 0;
+  }
+  & .icon {
+    top: calc((#{$top-navbar-height} - 36px) / 2) !important;
+  }
+  & .sa-search-close {
+    pointer-events: auto !important;
+    cursor: pointer;
+  }
+}
+
+/* Main Wrapper
+================================================================*/
 .sa-main-wrapper {
   padding-top: $top-navbar-height;
 }
 
 /* Sidebar's Rules
-* =====================================================================================================
-*/
+================================================================*/
 .sa-sidebar {
   position: fixed;
   top: $top-navbar-height;
@@ -94,7 +117,7 @@ body {
     padding: 0 10px;
   }
 
-  // Rules sidebar's userview section
+  // Rules for sidebar's userview section
   & .sa-userview {
     margin-bottom: 24px;
 
@@ -143,8 +166,7 @@ body {
 }
 
 /* Main content
-* ================================================================================
-*/
+================================================================ */
 .sa-main-content {
   padding: 26px;
 
