@@ -6,9 +6,11 @@ $solitude: #F3F4F5;
 $night-rider: #333;
 $navy-blue: #0277bd;
 $empress: #757575;
+$gainsboro: #E5E5E5;
 
 // Sizes
 $top-navbar-height: 3.25rem;
+$top-navbar-dropdown-min-width: 5.25rem;
 $sidebar-width: 270px;
 $sidebar-userview-height: 185px;
 $sidebar-userview-profile-size: 64px;
@@ -21,6 +23,9 @@ $body-color: $white-smoke;
 
 $top-navbar-color: $navy-blue;
 $top-navbar-link-color: $white;
+$top-navbar-dropdown-color: $white;
+$top-navbar-dropdown-link-color: $empress;
+$top-navbar-dropdown-link-hover-bg-color: $gainsboro;
 
 $sidebar-color: $white;
 $sidebar-userview-profile-color: $white;

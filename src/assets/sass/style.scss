@@ -2,7 +2,7 @@
 
 body {
   height: 100vh;
-  background-color: $body-color; 
+  background-color: $body-color;
 }
 
 /* Flex modifiers */
@@ -18,14 +18,55 @@ body {
   background-color: $top-navbar-color;
   box-shadow: 0 3px 6px rgba(0,0,0,.3);
   height: $top-navbar-height;
+  & a {
+    color: $top-navbar-link-color;
+  }
 }
 .nav-fixed {
   position: fixed;
   top: 0;
   width: 100%;
 }
-a.nav-item {
-  color: $top-navbar-link-color; 
+// Navbar dropdown's rules
+.sa-nav-dropdown {
+  & a.sa-dropdown-heading {
+    z-index: 12;
+  }
+  & ul {
+    position: absolute;
+    top: $top-navbar-height;
+    min-width: $top-navbar-dropdown-min-width;
+    padding: 5px 0;
+    background-color: $top-navbar-dropdown-color;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    box-shadow: 0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);
+    z-index: 13;
+
+    & span.sa-dropdown-up-arrow {
+      position: absolute;
+      top: -8px;
+      left: 44%;
+      color: $top-navbar-dropdown-color;
+    }
+
+    & a {
+      display: block;
+      padding: 5px 10px;
+      color: $top-navbar-dropdown-link-color;
+      &:hover {
+        background-color: $top-navbar-dropdown-link-hover-bg-color;
+      }
+    }
+  }
+  & .sa-dropdown-clickaway {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 11;
+  }
 }
 
 /* Main Wrapper */
@@ -44,7 +85,7 @@ a.nav-item {
   // padding-top: 1rem;
   height: calc(100% - #{$top-navbar-height});
   background-color: $sidebar-color;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 
   & .menu-label {
     padding: 0 8px;
@@ -53,7 +94,7 @@ a.nav-item {
     padding: 0 10px;
   }
 
-  // Rules sidebar's userview section 
+  // Rules sidebar's userview section
   & .sa-userview {
     margin-bottom: 24px;
 
@@ -101,7 +142,7 @@ a.nav-item {
   }
 }
 
-/* Main content 
+/* Main content
 * ================================================================================
 */
 .sa-main-content {

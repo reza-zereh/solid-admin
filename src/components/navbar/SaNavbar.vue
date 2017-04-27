@@ -1,5 +1,5 @@
 <template>
-  <!-- 
+  <!--
     Top navbar component
 
     NOTE: All sub-components and childs must be placed directly here (No <slot>).
@@ -9,7 +9,7 @@
     <sa-nav-usertoggles v-if="!isRtl"></sa-nav-usertoggles>
 
     <div class="nav-center" :class="{'sa-row-reverse': isRtl}">
-      <sa-navitem>
+      <sa-navitem to="https://github.com/ironcladgeek/solid-admin">
         <span class="icon">
           <i class="fa fa-github"></i>
         </span>
