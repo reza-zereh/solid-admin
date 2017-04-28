@@ -3,7 +3,7 @@
  * ==============================================================================
  */
 // Controls the whole direction of the admin panel
-window.isRtl = true;
+window.isRtl = false;
 
 // Holds the global state for sidebar
 // Required - May see unexpected behaviour if undefined

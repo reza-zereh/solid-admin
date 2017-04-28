@@ -56,12 +56,24 @@
     },
 
     mounted() {
-      this.isRtl = window.isRtl || false;
+      // Read `window.isRtl` at startup
+      this.getWindowIsRtl();
 
       // Listening for `toggleSidebar` event to show/hide the sidebar
       Event.$on('toggleSidebar', () => {
         this.showSidebar = window.showSidebar;
       });
+
+      // Listening for `toggleDirecion` event to change the direction of sidebar
+      Event.$on('toggleDirection', () => {
+        this.getWindowIsRtl();
+      });
+    },
+
+    methods: {
+      getWindowIsRtl() {
+        this.isRtl = window.isRtl || false;
+      }
     }
   }
 </script>

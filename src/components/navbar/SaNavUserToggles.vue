@@ -10,6 +10,8 @@
     <sa-sidebar-toggle></sa-sidebar-toggle>
 
     <sa-searchbar-toggle></sa-searchbar-toggle>
+
+    <sa-direction-toggle></sa-direction-toggle>
   </div>
 </template>
 
@@ -17,12 +19,14 @@
   import SaNavItem from './SaNavItem.vue';
   import SaNavSidebarToggle from './SaNavSidebarToggle.vue';
   import SaSearchbarToggle from './SaSearchbarToggle.vue';
+  import SaNavDirectionToggle from './SaNavDirectionToggle.vue';
 
   export default {
     components: {
-      'sa-navitem'       : SaNavItem,
-      'sa-sidebar-toggle': SaNavSidebarToggle,
-      'sa-searchbar-toggle': SaSearchbarToggle
+      'sa-navitem'         : SaNavItem,
+      'sa-sidebar-toggle'  : SaNavSidebarToggle,
+      'sa-searchbar-toggle': SaSearchbarToggle,
+      'sa-direction-toggle': SaNavDirectionToggle
     },
 
     data() {
@@ -32,12 +36,24 @@
     },
 
     mounted() {
-      this.isRtl = window.isRtl || false;
+      // Read `window.isRtl` at startup
+      this.getWindowIsRtl();
+      
+      // Listening for `toggleDirecion` event to change the direction of sidebar
+      Event.$on('toggleDirection', () => {
+        this.getWindowIsRtl();
+      });
     },
 
     computed: {
       className() {
-        return isRtl ? 'nav-right sa-row-reverse sa-flex-start' : 'nav-left';
+        return this.isRtl ? 'nav-right sa-row-reverse sa-flex-start' : 'nav-left';
+      }
+    },
+    
+    methods: {
+      getWindowIsRtl() {
+        this.isRtl = window.isRtl || false;
       }
     }
   }

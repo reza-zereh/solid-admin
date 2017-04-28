@@ -43,12 +43,24 @@
     },
 
     mounted() {
-      this.isRtl = window.isRtl || false; 
+      // Read `window.isRtl` at startup
+      this.getWindowIsRtl();
+      
+      // Listening for `toggleDirecion` event to change the direction of sidebar
+      Event.$on('toggleDirection', () => {
+        this.getWindowIsRtl();
+      });
     },
 
     computed: {
       className() {
         return this.isRtl ? 'is-pulled-left' : 'is-pulled-right';
+      }
+    },
+    
+    methods: {
+      getWindowIsRtl() {
+        this.isRtl = window.isRtl || false;
       }
     }
   }
