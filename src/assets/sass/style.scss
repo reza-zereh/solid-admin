@@ -34,6 +34,7 @@ body {
   & a.sa-dropdown-heading {
     z-index: 12;
   }
+  // TODO: fix the dropdown's position problem for mobile devices.
   & ul {
     position: absolute;
     top: $top-navbar-height;
@@ -52,9 +53,16 @@ body {
       color: $top-navbar-dropdown-color;
     }
 
+    & li {
+      border-bottom: 1px solid $top-navbar-dropdown-border-color;
+    }
+    & li:last-child {
+      border-bottom: none;
+    }
+
     & a {
       display: block;
-      padding: 5px 10px;
+      padding: 5px 22px;
       color: $top-navbar-dropdown-link-color;
       &:hover {
         background-color: $top-navbar-dropdown-link-hover-bg-color;
