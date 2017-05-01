@@ -100,6 +100,14 @@ body {
   }
 }
 
+// Transition effect classes for search form
+.sa-search-enter, .sa-search-leave-to {
+  opacity: 0;
+}
+.sa-search-enter-active, .sa-search-leave-active {
+  transition: opacity 0.5s;
+}
+
 /* Main Wrapper
 ================================================================*/
 .sa-main-wrapper {

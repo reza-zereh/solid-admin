@@ -3,6 +3,7 @@
     Main sidebar component. Automatically place right or left side of screen based on `window.isRtl` setting.
     
     NOTE: Except <sa-sidebar-userview> and <sa-sidebar-label>, all other components should be placed within <sa-sidebar-menu> component.
+    TODO: Add transition effect for showing/hiding
    -->
   <div class="" v-if="showSidebar">
     <aside class="menu sa-sidebar" :class="{'sa-is-rtlsidebar': isRtl}">
