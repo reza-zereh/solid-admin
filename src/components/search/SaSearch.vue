@@ -2,15 +2,14 @@
   <!--
     Searchbar component.
 
-    TODO: action link, submit, focused on show, hide by ESC, multi-lang placeholder
+    TODO: form action link, submit, focused on show
    -->
   <nav class="nav nav-fixed sa-search-nav" v-if="show">
     <div class="sa-search-wrapper">
       <form action="/#search" method="post">
         <div class="field">
           <p class="control has-icons-left has-icons-right">
-            <input class="input" type="text"
-              placeholder="Search..." :class="{'has-text-right': isRtl}">
+            <input class="input" type="text" placeholder="Search..." :class="{'has-text-right': isRtl}">
 
             <span class="icon sa-search-close"
               :class="{'is-left':isRtl, 'is-right': !isRtl}"  @click="show = false">
@@ -35,6 +34,16 @@
         isRtl: false,
         show: false
       }
+    },
+
+    created() {
+      // Attach eventListener for `ESC` keydown to deactive the searchbar if it's active
+      window.addEventListener('keydown', (e) => {
+        if(this.show) {
+          if(e.keyCode == 27) 
+            this.show = false;
+        }
+      });
     },
 
     mounted() {
