@@ -6,6 +6,10 @@
    -->
   <li>
     <a :href="to" :class="{'is-active': isActive}" @click="itemClicked">
+      <!-- Item's icon - FontAwesome standard class name (ex: fa-search) that should be set on `fa-icon` property' -->
+      <span class="icon" v-if="faIcon">
+        <i class="fa " :class="faIcon"></i>
+      </span>
       <slot></slot>
     </a>
   </li>
@@ -17,6 +21,9 @@
       'to': {
         default: '#',
         type: String
+      },
+      'fa-icon': {
+        default: false 
       }
     },
 

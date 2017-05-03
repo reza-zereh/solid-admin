@@ -17,15 +17,17 @@
       
       <sa-sidebar-label>General</sa-sidebar-label>
       <sa-sidebar-menu>
-        <sa-sidebar-menuitem to="#1">DASHBOARD</sa-sidebar-menuitem>
-        <sa-sidebar-menuitem to="#1">Logs</sa-sidebar-menuitem>
+        <sa-sidebar-menuitem to="#dashboard" fa-icon="fa-tachometer">Dashboard</sa-sidebar-menuitem>
+        <sa-sidebar-menuitem to="#logs" fa-icon="fa-file-text-o">Logs</sa-sidebar-menuitem>
+        <sa-sidebar-menuitem to="#mails" fa-icon="fa-envelope-o">Mails</sa-sidebar-menuitem>
       </sa-sidebar-menu> 
 
       <sa-sidebar-label>Administration</sa-sidebar-label> 
       <sa-sidebar-menu>
-        <sa-sidebar-submenu heading="SOLID">
-          <sa-sidebar-menuitem>Foo</sa-sidebar-menuitem> 
-          <sa-sidebar-menuitem>Bar</sa-sidebar-menuitem> 
+        <sa-sidebar-submenu heading="System" fa-icon="fa-cog">
+          <sa-sidebar-menuitem>Settings</sa-sidebar-menuitem> 
+          <sa-sidebar-menuitem>Tools</sa-sidebar-menuitem> 
+          <sa-sidebar-menuitem>Users</sa-sidebar-menuitem> 
         </sa-sidebar-submenu>
       </sa-sidebar-menu>
 
@@ -36,7 +38,7 @@
 <script>
   import SaSidebarLabel from './SaSidebarLabel.vue';
   import SaSidebarMenu from './SaSidebarMenu.vue';
-  import SaSidebarMenuItem from './SaSideMenuItem.vue';
+  import SaSidebarMenuItem from './SaSidebarMenuItem.vue';
   import SaSidebarSubmenu from './SaSidebarSubmenu.vue';
   import SaSidebarUserView from './SaSidebarUserView.vue';
 

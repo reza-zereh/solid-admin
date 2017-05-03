@@ -7,6 +7,10 @@
    -->
   <li>
     <a @click="expanded = !expanded">
+      <!-- Item's icon - FontAwesome standard class name (ex: fa-search) that should be set on `fa-icon` property' -->
+      <span class="icon" v-if="faIcon">
+        <i class="fa " :class="faIcon"></i>
+      </span>
       {{heading}}
 
       <!--
@@ -20,9 +24,13 @@
         <i class="fa fa-angle-right" :class="{'fa-rotate-90': expanded}"></i>
       </span>
     </a>
-    <ul v-show="expanded">
-      <slot></slot> 
-    </ul>
+
+    <!-- Submenu items go here -->
+    <transition name="sa-submenu-anm">
+      <ul v-show="expanded" class="sa-sidebar-submenu">
+        <slot></slot> 
+      </ul>
+    </transition>
   </li>
 </template>
 
@@ -32,6 +40,9 @@
       'heading': {
         required: true,
         type: String
+      },
+      'fa-icon': {
+        default: false 
       }
     },
 

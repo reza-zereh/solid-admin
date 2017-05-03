@@ -130,7 +130,10 @@ body {
     padding: 0 8px;
   }
   & .menu-list {
-    padding: 0 10px;
+    padding: 0 5px;
+  }
+  & .icon .fa {
+    font-size: 16px;
   }
 
   // Rules for sidebar's userview section
@@ -167,6 +170,13 @@ body {
       }
     }
   }
+
+  // Rules for sidebar's submenu
+  & .sa-sidebar-submenu {
+    & a {
+      font-size: 14px;
+    }
+  }
 }
 // rules for sidebar when RTL is activated
 .sa-is-rtlsidebar {
@@ -181,6 +191,15 @@ body {
   }
 }
 
+// Submenu transition effects
+// transition name: `sa-submenu-anm`
+.sa-submenu-anm-enter, .sa-submenu-anm-leave-to{
+  transform: scaleY(0);
+  transform-origin: top;
+}
+.sa-submenu-anm-enter-active, .sa-submenu-anm-leave-active {
+  transition: all .3s ease-in-out;
+}
 /* Main content
 ================================================================ */
 .sa-main-content {
