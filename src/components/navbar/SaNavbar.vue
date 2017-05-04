@@ -3,6 +3,9 @@
     Top navbar component
 
     NOTE: All sub-components and childs must be placed directly here (No <slot>).
+      
+    <sa-nav-useractions> is at right of the navbar if it is left-to-right theme.
+    <sa-nav-usertoggles> is at left of the navbar if it is left-to-right theme.
   -->
   <nav class="nav nav-fixed">
     <sa-nav-useractions v-if="isRtl"></sa-nav-useractions>
