@@ -6,7 +6,7 @@
     NOTE 2: `heading` property is required.
    -->
   <li>
-    <a @click="expanded = !expanded">
+    <a @click="toggleExpand">
       <!-- Item's icon - FontAwesome standard class name (ex: fa-search) that should be set on `fa-icon` property' -->
       <span class="icon" v-if="faIcon">
         <i class="fa " :class="faIcon"></i>
@@ -61,6 +61,13 @@
       Event.$on('toggleDirection', () => {
         this.getWindowIsRtl();
       });
+
+      // Collapse the submenu when other submenu expands
+      Event.$on('submenuExpanded', (eventDispatcherId) => {
+        if(this._uid !== eventDispatcherId) {
+          this.expanded = false;
+        }
+      });
     },
 
     computed: {
@@ -72,6 +79,12 @@
     methods: {
       getWindowIsRtl() {
         this.isRtl = window.isRtl || false;
+      },
+
+      // Expand/Collapse the submenu and fire an event to collapse other submenu if there is any expanded one
+      toggleExpand() {
+        this.expanded = !this.expanded;
+        Event.$emit('submenuExpanded', this._uid);
       }
     }
   }

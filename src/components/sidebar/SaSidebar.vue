@@ -23,11 +23,19 @@
       </sa-sidebar-menu> 
 
       <sa-sidebar-label>Administration</sa-sidebar-label> 
+      
       <sa-sidebar-menu>
         <sa-sidebar-submenu heading="System" fa-icon="fa-cog">
           <sa-sidebar-menuitem>Settings</sa-sidebar-menuitem> 
           <sa-sidebar-menuitem>Tools</sa-sidebar-menuitem> 
           <sa-sidebar-menuitem>Users</sa-sidebar-menuitem> 
+        </sa-sidebar-submenu>
+        
+        <sa-sidebar-submenu heading="Catalog" fa-icon="fa-tags">
+          <sa-sidebar-menuitem>Categories</sa-sidebar-menuitem> 
+          <sa-sidebar-menuitem>Products</sa-sidebar-menuitem> 
+          <sa-sidebar-menuitem>Gift Cards</sa-sidebar-menuitem> 
+          <sa-sidebar-menuitem>Vochers</sa-sidebar-menuitem> 
         </sa-sidebar-submenu>
       </sa-sidebar-menu>
 

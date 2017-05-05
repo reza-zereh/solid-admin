@@ -131,6 +131,9 @@ body {
   }
   & .menu-list {
     padding: 0 5px;
+    & a {
+      font-size: 14px;
+    }
   }
   & .icon .fa {
     font-size: 16px;
@@ -173,8 +176,25 @@ body {
 
   // Rules for sidebar's submenu
   & .sa-sidebar-submenu {
+    & li {
+      position: relative;
+    }
+    // Submenu bullets - LTR Sidebar
+    & li::before {
+      background: $sidebar-submenu-bullet-color;
+      bottom: auto;
+      content: "";
+      height: 8px;
+      left: -16px;
+      margin-top: 11px;
+      position: absolute;
+      right: auto;
+      width: 8px;
+      z-index: 1;
+      border-radius: 50%;
+    }
     & a {
-      font-size: 14px;
+      font-size: 13px;
     }
   }
 }
@@ -188,6 +208,22 @@ body {
     margin: 0.75em;
     padding-left: 0;
     padding-right: 0.75em;
+  }
+  // Submenu bullets - RTL sidebar
+  & .sa-sidebar-submenu {
+    & li::before {
+      background: $sidebar-submenu-bullet-color;
+      content: "";
+      position: absolute;
+      height: 8px;
+      width: 8px;
+      right: -16px;
+      left: auto;
+      bottom: auto;
+      margin-top: 11px;
+      z-index: 1;
+      border-radius: 50%;
+    }
   }
 }
 
