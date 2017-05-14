@@ -8,8 +8,8 @@
   <div class="" v-if="showSidebar">
     <aside class="menu sa-sidebar" :class="{'sa-is-rtlsidebar': isRtl}">
       <sa-sidebar-userview 
-        backgroundSrc="/src/assets/pics/userview.jpg"
-        profileSrc="/src/assets/pics/profile.jpg"
+        backgroundSrc="/public/images/userview.jpg"
+        profileSrc="/public/images/profile.jpg"
         username="John Doe"
         email="ironcladgeek@hotmail.com"
       >
