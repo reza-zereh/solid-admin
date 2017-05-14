@@ -62,11 +62,31 @@
       </div>
 
     </div> 
+    <sa-tabs>
+      <sa-tab-pane name="Picture">
+        <h1>Something about pictures</h1>
+      </sa-tab-pane>
+      <sa-tab-pane name="Music">
+        <h1>Something about musics</h1>
+      </sa-tab-pane>
+      <sa-tab-pane name="Video" :selected="true">
+        <h1>Something about videos</h1>
+      </sa-tab-pane>
+
+    </sa-tabs>
   </div> 
 </template>
 
 <script>
+  import SaTabs from '../views/tab/SaTabs.vue';
+  import SaTabPane from '../views/tab/SaTabPane.vue';
+
   export default {
+    components: {
+      'sa-tabs': SaTabs,
+      'sa-tab-pane': SaTabPane
+    },
+
     data() {
       return {
         isRtl: false,
