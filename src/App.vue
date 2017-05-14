@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import SaNavbar from './components/navbar/SaNavbar.vue';
-import SaSidebar from './components/sidebar/SaSidebar.vue';
-import SaMainContent from './components/content/SaMainContent.vue';
-import SaSearch from './components/search/SaSearch.vue';
+import SaNavbar from './components/layout/navbar/SaNavbar.vue';
+import SaSidebar from './components/layout/sidebar/SaSidebar.vue';
+import SaMainContent from './components/layout/content/SaMainContent.vue';
+import SaSearch from './components/layout/search/SaSearch.vue';
 
 export default {
   components: {

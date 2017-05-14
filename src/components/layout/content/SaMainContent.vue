@@ -78,8 +78,8 @@
 </template>
 
 <script>
-  import SaTabs from '../views/tab/SaTabs.vue';
-  import SaTabPane from '../views/tab/SaTabPane.vue';
+  import SaTabs from '../../features/tab/SaTabs.vue';
+  import SaTabPane from '../../features/tab/SaTabPane.vue';
 
   export default {
     components: {
