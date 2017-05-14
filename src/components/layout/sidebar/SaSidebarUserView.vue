@@ -48,7 +48,7 @@
       // Read `window.isRtl` at startup
       this.getWindowIsRtl();
       
-      // Listening for `toggleDirecion` event to change the direction of sidebar
+      // Listening for `toggleDirecion` event to change the direction of userview
       Event.$on('toggleDirection', () => {
         this.getWindowIsRtl();
       });

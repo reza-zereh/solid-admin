@@ -71,6 +71,7 @@
       </sa-tab-pane>
       <sa-tab-pane name="Video" :selected="true">
         <h1>Something about videos</h1>
+        <sa-input label="Comment" name="comment" id="comment" ></sa-input>
       </sa-tab-pane>
 
     </sa-tabs>
@@ -80,11 +81,13 @@
 <script>
   import SaTabs from '../../features/tab/SaTabs.vue';
   import SaTabPane from '../../features/tab/SaTabPane.vue';
+  import SaInput from '../../features/form/SaInput.vue';
 
   export default {
     components: {
       'sa-tabs': SaTabs,
-      'sa-tab-pane': SaTabPane
+      'sa-tab-pane': SaTabPane,
+      'sa-input': SaInput
     },
 
     data() {
