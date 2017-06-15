@@ -1,7 +1,7 @@
 {
   "name": "solid-admin",
   "description": "A simple admin panel based on Vue.js and Bulma css framework.",
-  "version": "0.11.0",
+  "version": "0.11.1",
   "author": "M. Reza Zerehpoosh <ironcladgeek@hotmail.com>",
   "private": true,
   "scripts": {
@@ -10,8 +10,10 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "bulma": "^0.4.1",
-    "vue": "^2.2.1"
+    "vue": "^2.2.1",
+    "vue-router": "^2.5.3"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
