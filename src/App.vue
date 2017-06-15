@@ -8,7 +8,9 @@
     <div class="sa-main-wrapper">
       <sa-sidebar></sa-sidebar>
 
-      <sa-content></sa-content>
+      <sa-content>
+        <router-view></router-view>
+      </sa-content>
     </div>
   </div>
 </template>

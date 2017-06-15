@@ -1,0 +1,14 @@
+<sa-tabs>
+
+  <sa-tab-pane name="Picture">
+    <h1>Something about pictures</h1>
+  </sa-tab-pane>
+  <sa-tab-pane name="Music">
+    <h1>Something about musics</h1>
+  </sa-tab-pane>
+  <sa-tab-pane name="Video" :selected="true">
+    <h1>Something about videos</h1>
+    <sa-input label="Comment" name="comment" id="comment" ></sa-input>
+  </sa-tab-pane>
+
+</sa-tabs>
