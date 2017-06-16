@@ -34,6 +34,9 @@
         <sa-nav-dropdown-item to="/#alerts">Alerts</sa-nav-dropdown-item>
       </template>
     </sa-nav-dropdown>
+
+    <!-- Lock screen button for navbar -->
+    <sa-lock-screen-btn></sa-lock-screen-btn>
   </div>
 </template>
 
@@ -41,12 +44,14 @@
   import SaNavItem from './SaNavItem.vue';
   import SaNavDropdown from './SaNavDropdown.vue';
   import SaNavDropdownItem from './SaNavDropdownItem.vue';
+  import SaLockScreenBtn from './SaLockScreenBtn.vue';
 
   export default {
     components: {
       'sa-navitem': SaNavItem,
       'sa-nav-dropdown': SaNavDropdown,
-      'sa-nav-dropdown-item': SaNavDropdownItem
+      'sa-nav-dropdown-item': SaNavDropdownItem,
+      'sa-lock-screen-btn':SaLockScreenBtn
     },
     data() {
       return {

@@ -16,9 +16,12 @@ window.Event = new Vue();
 // Router object with configured routes
 import { router } from './routes/routes';
 
+// Central store object
+import { store } from './store/store';
 
 new Vue({
   el: '#app',
   router: router,
+  store: store,
   render: h => h(App)
 });
