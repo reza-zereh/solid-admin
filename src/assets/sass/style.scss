@@ -5,36 +5,42 @@ body {
   background-color: $body-color;
 }
 
+
 /* Flex modifiers
 ================================================================*/
+
 .sa-row-reverse {
   flex-direction: row-reverse;
 }
+
 .sa-flex-start {
   justify-content: flex-start;
 }
 
+
 /* Top Navbar
 ================================================================*/
+
 .nav {
   background-color: $top-navbar-color;
-  box-shadow: 0 3px 6px rgba(0,0,0,.3);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .3);
   height: $top-navbar-height;
   & a {
     color: $top-navbar-link-color;
   }
 }
+
 .nav-fixed {
   position: fixed;
   top: 0;
   width: 100%;
 }
+
 // Navbar dropdown's rules
 .sa-nav-dropdown {
   & a.sa-dropdown-heading {
     z-index: 12;
-  }
-  // TODO: fix the dropdown's position problem for mobile devices.
+  } // TODO: fix the dropdown's position problem for mobile devices.
   & ul {
     position: absolute;
     top: $top-navbar-height;
@@ -43,23 +49,20 @@ body {
     background-color: $top-navbar-dropdown-color;
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
-    box-shadow: 0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
     z-index: 13;
-
     & span.sa-dropdown-up-arrow {
       position: absolute;
       top: -8px;
       left: 44%;
       color: $top-navbar-dropdown-color;
     }
-
     & li {
       border-bottom: 1px solid $top-navbar-dropdown-border-color;
     }
     & li:last-child {
       border-bottom: none;
     }
-
     & a {
       display: block;
       padding: 5px 22px;
@@ -79,11 +82,12 @@ body {
   }
 }
 
+
 /* Search Form
 ================================================================ */
+
 .sa-search-nav {
   height: $top-navbar-height;
-
   & .sa-search-wrapper {
     flex-grow: 1;
   }
@@ -101,31 +105,36 @@ body {
 }
 
 // Transition effect classes for search form
-.sa-search-enter, .sa-search-leave-to {
+.sa-search-enter,
+.sa-search-leave-to {
   opacity: 0;
 }
-.sa-search-enter-active, .sa-search-leave-active {
+
+.sa-search-enter-active,
+.sa-search-leave-active {
   transition: opacity 0.5s;
 }
 
+
 /* Main Wrapper
 ================================================================*/
+
 .sa-main-wrapper {
   padding-top: $top-navbar-height;
 }
 
+
 /* Sidebar's Rules
 ================================================================*/
+
 .sa-sidebar {
   position: fixed;
   top: $top-navbar-height;
   bottom: 0;
-  width: $sidebar-width;
-  // padding-top: 1rem;
+  width: $sidebar-width; // padding-top: 1rem;
   height: calc(100% - #{$top-navbar-height});
   background-color: $sidebar-color;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-
   & .menu-label {
     padding: 0 8px;
   }
@@ -137,49 +146,42 @@ body {
   }
   & .icon .fa {
     font-size: 16px;
-  }
-
-  // Rules for sidebar's userview section
+  } // Rules for sidebar's userview section
   & .sa-userview {
     margin-bottom: 24px;
-
     & img {
       max-width: none;
     }
     & .sa-userview-background {
-      overflow: hidden;;
+      overflow: hidden;
+      ;
       z-index: -1;
       height: $sidebar-userview-height;
-
     }
     & .sa-userview-profile {
       position: absolute;
       top: calc(#{$sidebar-userview-profile-size} / 2);
-
       &.sa-profile-rtl {
         right: calc(#{$sidebar-userview-profile-size} / 2);
       }
       &.sa-profile-ltr {
         left: calc(#{$sidebar-userview-profile-size} / 2);
       }
-      & .title, .subtitle {
+      & .title,
+      .subtitle {
         color: $sidebar-userview-profile-color;
       }
-
       & img.sa-circle {
         width: $sidebar-userview-profile-size;
         height: $sidebar-userview-profile-size;
         border-radius: 50%;
       }
     }
-  }
-
-  // Rules for sidebar's submenu
+  } // Rules for sidebar's submenu
   & .sa-sidebar-submenu {
     & li {
       position: relative;
-    }
-    // Submenu bullets - LTR Sidebar
+    } // Submenu bullets - LTR Sidebar
     & li::before {
       background: $sidebar-submenu-bullet-color;
       bottom: auto;
@@ -198,6 +200,7 @@ body {
     }
   }
 }
+
 // rules for sidebar when RTL is activated
 .sa-is-rtlsidebar {
   right: 0;
@@ -208,8 +211,7 @@ body {
     margin: 0.75em;
     padding-left: 0;
     padding-right: 0.75em;
-  }
-  // Submenu bullets - RTL sidebar
+  } // Submenu bullets - RTL sidebar
   & .sa-sidebar-submenu {
     & li::before {
       background: $sidebar-submenu-bullet-color;
@@ -229,31 +231,95 @@ body {
 
 // Submenu transition effects
 // transition name: `sa-submenu-anm`
-.sa-submenu-anm-enter, .sa-submenu-anm-leave-to{
+.sa-submenu-anm-enter,
+.sa-submenu-anm-leave-to {
   transform: scaleY(0);
   transform-origin: top;
 }
-.sa-submenu-anm-enter-active, .sa-submenu-anm-leave-active {
+
+.sa-submenu-anm-enter-active,
+.sa-submenu-anm-leave-active {
   transition: all .3s ease-in-out;
 }
+
+
 /* Main content
 ================================================================ */
-.sa-main-content {
-  padding: 26px;
 
-  // When sidebar is hidden
+.sa-main-content {
+  padding: 26px; // When sidebar is hidden
   &.sa-content-nosidebar {
     margin-left: 0 !important;
     margin-right: 0 !important;
-  }
-
-  // When main sidebar is active and RTL
+  } // When main sidebar is active and RTL
   &.sa-is-rtlcontent {
     margin-right: $sidebar-width;
-  }
-
-  // When main sidebar is active and LTR
+  } // When main sidebar is active and LTR
   &.sa-is-ltrcontent {
     margin-left: $sidebar-width;
+  }
+}
+
+
+/** Loadings
+================================================================ */
+
+.sa-loading-container {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: $loading-overlay-color;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  z-index: 999;
+}
+
+.sa-loading-wrapper {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+  border-radius: 50%;
+  padding: 20px 20px 20px;
+  text-align: center;
+  
+  .sa-load-1 {
+    margin-top: 10px;
+    .sa-line {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border-radius: 15px;
+      background-color: $loading-line-color;
+    }
+    /* Animate the stuff
+    ------------------------ */
+    & .sa-line:nth-last-child(1) {
+      animation: loadingA 1.5s 1s infinite;
+    }
+    & .sa-line:nth-last-child(2) {
+      animation: loadingA 1.5s .5s infinite;
+    }
+    & .sa-line:nth-last-child(3) {
+      animation: loadingA 1.5s 0s infinite;
+    }
+    @keyframes loadingA {
+      0 {
+        height: 15px;
+      }
+      50% {
+        height: 35px;
+      }
+      100% {
+        height: 15px;
+      }
+    }
   }
 }

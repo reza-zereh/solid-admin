@@ -19,6 +19,10 @@
       </div>
     </div>
 
+    <!-- Overlays here-->
+    <section>
+      <sa-loading v-if="showLoading"></sa-loading>
+    </section>
   </div>
 </template>
 
@@ -28,19 +32,21 @@ import SaSidebar from './components/layout/sidebar/SaSidebar.vue';
 import SaMainContent from './components/layout/content/SaMainContent.vue';
 import SaSearch from './components/layout/search/SaSearch.vue';
 import SaLockScreen from './components/layout/overlay/SaLockScreen.vue';
+import SaLoading from './components/layout/overlay/SaLoading1.vue';
 
 export default {
   components: {
-    'sa-navbar'     : SaNavbar,
-    'sa-sidebar'    : SaSidebar,
-    'sa-content'    : SaMainContent,
-    'sa-search'     : SaSearch,
-    'sa-lock-screen': SaLockScreen
+    'sa-navbar':      SaNavbar,
+    'sa-sidebar':     SaSidebar,
+    'sa-content':     SaMainContent,
+    'sa-search':      SaSearch,
+    'sa-lock-screen': SaLockScreen,
+    'sa-loading':     SaLoading
   },
 
   data() {
     return {
-
+      showLoading: false
     }
   },
 

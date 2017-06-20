@@ -7,6 +7,8 @@ $night-rider: #333;
 $navy-blue: #0277bd;
 $empress: #757575;
 $gainsboro: #E5E5E5;
+$cod-grey: #0A0A0A;
+$havelock-blue: #4b9cdb;
 
 // Sizes
 $top-navbar-height: 3.25rem;
@@ -37,3 +39,7 @@ $search-navbar-color: $solitude;
 $user-dropdown-text-color: $empress;
 $badge-navbar-color: $white;
 $badge-navbar-bg-color: rgba($black, 0.5);
+
+// Loading colors
+$loading-overlay-color: rgba($cod-grey, 0.75);
+$loading-line-color: $havelock-blue;
