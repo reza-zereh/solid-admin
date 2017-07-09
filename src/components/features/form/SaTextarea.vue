@@ -1,24 +1,25 @@
 <template>
   <!--
-      Form's label and text input component with standard HTML5 attributes
+      Form's label and textarea component with standard HTML5 attributes
 
       Usage:
-        <sa-input label='label' name='name' id='id' placeholder='placeholder' v-model='data'></sa-input>
+        <sa-textarea label='label' name='name' id='id' placeholder='placeholder' v-model='data'></sa-textarea>
         * 'label' property is the only required one
   -->
   <div class="field" :class="{'has-text-right': isRtl}">
     <label class="label" :for="id">{{label}}</label>
     <p class="control">
-      <input class="input" type="text" :name="name" :id="id" :placeholder="placeholder" 
+      <textarea class="textarea" :name="name" :id="id" :placeholder="placeholder"
         :class="{'has-text-right': isRtl}" :value="localValue" @input="updateValue($event.target.value)"
       >
+      </textarea>
     </p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'TextInput',
+  name: 'Textarea',
   props: {
     'label'      : { required: true },
     'name'       : { default : '' },
@@ -56,4 +57,5 @@ export default {
     }
   }
 }
-</script>  
+</script>
+

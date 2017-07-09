@@ -1,8 +1,8 @@
 <template>
   <form>
-    <div class="field">
-      <sa-input label="Sa Input" id="sa-input" v-model="content"></sa-input>
-    </div>
+    <sa-input label="Sa Input" id="sa-input" v-model="content"></sa-input>
+
+    <sa-textarea label="Sa Textarea" v-model="text"></sa-textarea>
   
     <div class="field">
       <label class="label" for="username">Username</label>
@@ -84,15 +84,18 @@
 
 <script>
 import SaInput from '../features/form/SaInput.vue';
+import SaTextarea from '../features/form/SaTextarea.vue';
 
 export default {
   components: {
-    'sa-input': SaInput
+    'sa-input': SaInput,
+    'sa-textarea': SaTextarea
   },
 
   data() {
     return {
-      content: 'Freebie'
+      content: 'Freebie',
+      text: 'lorem ipsum switch borden ...'
     }
   }
 }
