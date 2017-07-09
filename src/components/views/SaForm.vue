@@ -1,16 +1,13 @@
 <template>
   <form>
     <div class="field">
-      <label class="label">Name</label>
-      <p class="control">
-        <input class="input" type="text" placeholder="Text input">
-      </p>
+      <sa-input label="Sa Input" id="sa-input" v-model="content"></sa-input>
     </div>
   
     <div class="field">
-      <label class="label">Username</label>
+      <label class="label" for="username">Username</label>
       <p class="control has-icons-left has-icons-right">
-        <input class="input is-success" type="text" placeholder="Text input" value="bulma">
+        <input class="input is-success" type="text" placeholder="Text input" value="bulma" id="username">
         <span class="icon is-small is-left">
           <i class="fa fa-user"></i>
         </span>
@@ -84,3 +81,19 @@
     </div>
   </form>
 </template>
+
+<script>
+import SaInput from '../features/form/SaInput.vue';
+
+export default {
+  components: {
+    'sa-input': SaInput
+  },
+
+  data() {
+    return {
+      content: 'Freebie'
+    }
+  }
+}
+</script>
