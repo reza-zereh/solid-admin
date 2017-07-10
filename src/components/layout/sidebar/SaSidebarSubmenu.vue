@@ -36,6 +36,7 @@
 
 <script>
   export default {
+    name: 'SidebarSubmenu',
     props: {
       'heading': {
         required: true,

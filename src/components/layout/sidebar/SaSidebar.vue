@@ -17,7 +17,7 @@
       
       <sa-sidebar-label>General</sa-sidebar-label>
       <sa-sidebar-menu>
-        <sa-sidebar-menuitem to="#dashboard" fa-icon="fa-tachometer">Dashboard</sa-sidebar-menuitem>
+        <sa-sidebar-menuitem to="#dashboard" fa-icon="fa-tachometer" @click="dashboard()">Dashboard</sa-sidebar-menuitem>
         <sa-sidebar-menuitem to="#logs" fa-icon="fa-file-text-o">Logs</sa-sidebar-menuitem>
         <sa-sidebar-menuitem to="#mails" fa-icon="fa-envelope-o">Mails</sa-sidebar-menuitem>
       </sa-sidebar-menu> 
@@ -51,6 +51,7 @@
   import SaSidebarUserView from './SaSidebarUserView.vue';
 
   export default {
+    name: 'Sidebar',
     components: {
       'sa-sidebar-label'    : SaSidebarLabel,
       'sa-sidebar-menu'     : SaSidebarMenu,
@@ -84,6 +85,11 @@
     methods: {
       getWindowIsRtl() {
         this.isRtl = window.isRtl || false;
+      },
+
+      // example method to show handling click event for 'sa-sidebar-menuitem' component
+      dashboard() {
+        console.log('dashboard clicked!');
       }
     }
   }

@@ -2,7 +2,16 @@
   <!--
     Default bulma's menu-item.
 
-    NOTE: Should be placed within a <sa-sidebar-menu> or <sa-sidebar-submenu> to work properly.
+    Usage:
+      <sa-sidebar-menu>
+        <sa-sidebar-menuitem to="url" fa-icon="fa-icon"></sa-sidebar-menuitem>
+      </sa-sidebar-menu>
+      Or:
+      <sa-sidebar-menu>
+        <sa-sidebar-submenu>
+          <sa-sidebar-menuitem to="url" fa-icon="fa-icon"></sa-sidebar-menuitem>
+        </sa-sidebar-submenu>
+      </sa-sidebar-menu>
    -->
   <li>
     <a :href="to" :class="{'is-active': isActive}" @click="itemClicked">
@@ -17,6 +26,7 @@
 
 <script>
   export default {
+    name: 'SidebarItem',
     props: {
       'to': {
         default: '#',
@@ -43,9 +53,11 @@
 
     methods: {
       // Fires and event and pass it's unique id to notify all other 
-      // <sa-sidebar-menuitem> component that it has been clicked to change `is-active`
+      // <sa-sidebar-menuitem> components to set their `is-active` property
+      // also adds v-on:click support to this component
       itemClicked() {
         Event.$emit('sidebarItemClicked', Number(this._uid));
+        this.$emit('click');
       }
     }
   }
