@@ -9,6 +9,11 @@ $empress: #757575;
 $gainsboro: #E5E5E5;
 $cod-grey: #0A0A0A;
 $havelock-blue: #4b9cdb;
+$science-blue: #0366D6;
+$polo-blue: #92B0D3;
+$cornflower-blue: #66afe9;
+$hawkes-blue: #D3E6FD;
+$dodger-blue: #2196F3;
 
 // Sizes
 $top-navbar-height: 3.25rem;
@@ -33,6 +38,10 @@ $top-navbar-dropdown-border-color: rgba($black, 0.2);
 $sidebar-color: $white;
 $sidebar-userview-profile-color: $white;
 $sidebar-submenu-bullet-color: $gainsboro;
+$sidebar-item-active-bg-color: $dodger-blue;
+$sidebar-item-active-color: $white;
+$sidebar-item-hover-color: $dodger-blue;
+
 
 $overlay-color: rgba($night-rider, 0.55);
 $search-navbar-color: $solitude;
