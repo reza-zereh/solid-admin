@@ -6,6 +6,7 @@ $solitude: #F3F4F5;
 $night-rider: #333;
 $navy-blue: #0277bd;
 $empress: #757575;
+$tundora: #4a4a4a;
 $gainsboro: #E5E5E5;
 $cod-grey: #0A0A0A;
 $havelock-blue: #4b9cdb;
@@ -27,6 +28,7 @@ $page-content-padding: 24px;
 
 // sections colors
 $body-color: $white-smoke;
+$input-focus-border-color: $cornflower-blue;
 
 $top-navbar-color: $navy-blue;
 $top-navbar-link-color: $white;
@@ -52,3 +54,11 @@ $badge-navbar-bg-color: rgba($black, 0.5);
 // Loading colors
 $loading-overlay-color: rgba($cod-grey, 0.75);
 $loading-line-color: $havelock-blue;
+
+// file-manager colors
+$fm-item-icon-color: $polo-blue;
+$fm-item-name-color: $science-blue;
+
+$fu-clickable-color: $hawkes-blue;
+$fu-details-color: $empress;
+$fu-details-status-color: $tundora;
