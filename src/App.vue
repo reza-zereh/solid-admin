@@ -4,7 +4,7 @@
     <sa-lock-screen v-if="isDashboardLocked"></sa-lock-screen>
 
     <!-- Content to show when the dashboard is not locked-->
-    <div v-else="isDashboardLocked">
+    <div v-else>
       <!-- Fixed top navbar -->
       <sa-navbar></sa-navbar>
       <sa-search></sa-search>

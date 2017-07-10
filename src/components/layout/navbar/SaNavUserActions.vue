@@ -19,7 +19,7 @@
       </template>
       <template slot="items">
         <sa-nav-dropdown-item to="/#profile">Profile</sa-nav-dropdown-item>
-        <sa-nav-dropdown-item to="/#signout">Sign Out</sa-nav-dropdown-item>
+        <sa-nav-dropdown-item to="/#signout" @click="signout()">Sign Out</sa-nav-dropdown-item>
       </template>
     </sa-nav-dropdown>
 
@@ -78,6 +78,11 @@
     methods: {
       getWindowIsRtl() {
         this.isRtl = window.isRtl || false;
+      },
+
+      // example method for handling signing out 
+      signout() {
+        console.log('signing out...');
       }
     }
   }
