@@ -7,7 +7,7 @@
     <sa-nav-useractions> is at right of the navbar if it is left-to-right theme.
     <sa-nav-usertoggles> is at left of the navbar if it is left-to-right theme.
   -->
-  <nav class="nav nav-fixed">
+  <nav class="nav nav-fixed sa-navbar">
     <sa-nav-useractions v-if="isRtl"></sa-nav-useractions>
     <sa-nav-usertoggles v-if="!isRtl"></sa-nav-usertoggles>
 
