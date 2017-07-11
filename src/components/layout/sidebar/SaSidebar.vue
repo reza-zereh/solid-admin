@@ -13,7 +13,7 @@
       <sa-sidebar-label>General</sa-sidebar-label>
       <sa-sidebar-menu>
         <sa-sidebar-menuitem to="#dashboard" fa-icon="fa-tachometer" @click="dashboard()">Dashboard</sa-sidebar-menuitem>
-        <sa-sidebar-menuitem to="#logs" fa-icon="fa-file-text-o">Logs</sa-sidebar-menuitem>
+        <sa-sidebar-menuitem to="form" fa-icon="fa-file-text-o" :router-link="true">Form</sa-sidebar-menuitem>
         <sa-sidebar-menuitem to="#mails" fa-icon="fa-envelope-o">Mails</sa-sidebar-menuitem>
       </sa-sidebar-menu>
   
