@@ -35,7 +35,7 @@
       </sa-sidebar-menu>
   
     </aside>
-    <div class="modal-background is-hidden-tablet" @click="hideSidebar()"></div>
+    <div class="modal-background is-hidden-tablet sa-sidebar-modal-background" @click="hideSidebar()"></div>
   </div>
 </template>
 

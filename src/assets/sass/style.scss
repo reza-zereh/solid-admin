@@ -212,6 +212,9 @@ body {
     }
   }
 }
+.sa-sidebar-modal-background {
+  z-index: 8;
+}
 
 // rules for sidebar when RTL is activated
 .sa-is-rtlsidebar {
