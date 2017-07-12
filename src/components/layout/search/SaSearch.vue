@@ -33,7 +33,6 @@
   export default {
     data() {
       return{
-        isRtl: false,
         show: false
       }
     },
@@ -49,23 +48,16 @@
     },
 
     mounted() {
-      // Read `window.isRtl` at startup
-      this.getWindowIsRtl();
-
       // Listening for `showSearchbar` event to activate the searchbar
       Event.$on('showSearchbar', () => {
         this.show = true;
       });
-      
-      // Listening for `toggleDirecion` event to change the direction of sidebar
-      Event.$on('toggleDirection', () => {
-        this.getWindowIsRtl();
-      });
     },
     
-    methods: {
-      getWindowIsRtl() {
-        this.isRtl = window.isRtl || false;
+    computed: {
+      // Determines if the screen is right-to-left or not by reading its value from the global store
+      isRtl() {
+        return this.$store.state.isRtl;
       }
     }
   }

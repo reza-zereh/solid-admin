@@ -53,33 +53,20 @@
       'sa-nav-dropdown-item': SaNavDropdownItem,
       'sa-lock-screen-btn':SaLockScreenBtn
     },
-    data() {
-      return {
-        isRtl: false
-      }
-    },
-
-    mounted() {
-      // Read `window.isRtl` at startup
-      this.getWindowIsRtl();
-      
-      // Listening for `toggleDirecion` event to change the direction of sidebar
-      Event.$on('toggleDirection', () => {
-        this.getWindowIsRtl();
-      });
-    },
 
     computed: {
       className() {
         return this.isRtl ? 'nav-left' : 'nav-right sa-row-reverse sa-flex-start';
+      },
+      
+      // Determines if the screen is right-to-left or not by reading its value from the global store
+      isRtl() {
+        return this.$store.state.isRtl;
       }
     },
     
+    
     methods: {
-      getWindowIsRtl() {
-        this.isRtl = window.isRtl || false;
-      },
-
       // example method for handling signing out 
       signout() {
         console.log('signing out...');

@@ -29,31 +29,14 @@
       'sa-direction-toggle': SaNavDirectionToggle
     },
 
-    data() {
-      return {
-        isRtl: false
-      }
-    },
-
-    mounted() {
-      // Read `window.isRtl` at startup
-      this.getWindowIsRtl();
-      
-      // Listening for `toggleDirecion` event to change the direction of sidebar
-      Event.$on('toggleDirection', () => {
-        this.getWindowIsRtl();
-      });
-    },
-
     computed: {
       className() {
         return this.isRtl ? 'nav-right sa-row-reverse sa-flex-start' : 'nav-left';
-      }
-    },
-    
-    methods: {
-      getWindowIsRtl() {
-        this.isRtl = window.isRtl || false;
+      },
+
+      // Determines if the screen is right-to-left or not by reading its value from the global store
+      isRtl() {
+        return this.$store.state.isRtl;
       }
     }
   }

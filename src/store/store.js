@@ -14,6 +14,9 @@ export const store = new Vuex.Store({
     isDashboardLocked: false,
     unlockPassword: 'secret',
 
+    // global state for screen direction
+    isRtl: false,
+
     // holds global state for sidebar visibility
     showSidebar: true
   },
@@ -30,6 +33,18 @@ export const store = new Vuex.Store({
      */
     setSidebarVisibility(state, status) {
       state.showSidebar = status;
+    },
+
+    setIsRtl(state, status) {
+      state.isRtl = status;
+    },
+
+    /**
+     * Reverse the value of `state.isRtl`
+     * @param {Object} state 
+     */
+    toggleIsRtl(state) {
+      state.isRtl = !state.isRtl;
     }
   }
 });

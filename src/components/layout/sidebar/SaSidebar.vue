@@ -56,27 +56,7 @@ export default {
     'sa-sidebar-userview': SaSidebarUserView
   },
 
-  data() {
-    return {
-      isRtl: false
-    }
-  },
-
-  mounted() {
-    // Read `window.isRtl` at startup
-    this.getWindowIsRtl();
-
-    // Listening for `toggleDirecion` event to change the direction of sidebar
-    Event.$on('toggleDirection', () => {
-      this.getWindowIsRtl();
-    });
-  },
-
   methods: {
-    getWindowIsRtl() {
-      this.isRtl = window.isRtl || false;
-    },
-
     hideSidebar() {
       this.$store.commit('setSidebarVisibility', false);
     },
@@ -90,6 +70,11 @@ export default {
   computed: {
     showSidebar() {
       return this.$store.state.showSidebar;
+    },
+
+    // Determines if the screen is right-to-left or not by reading its value from the global store
+    isRtl() {
+      return this.$store.state.isRtl;
     }
   }
 }

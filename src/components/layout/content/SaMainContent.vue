@@ -16,23 +16,13 @@
 
   export default {
     name: 'MainContent',
-    data() {
-      return {
-        isRtl: false
-      }
-    },
-
-    mounted() {
-      // Read `window.isRtl` at startup
-      this.getWindowIsRtl();
-
-      // Listening for `toggleDirecion` event to change the direction of sidebar
-      Event.$on('toggleDirection', () => {
-        this.getWindowIsRtl();
-      });
-    },
 
     computed: {
+      // Determines if the screen is right-to-left or not by reading its value from the global store
+      isRtl() {
+        return this.$store.state.isRtl;
+      },
+
       className() {
         if (this.showSidebar) {
           return this.isRtl ? 'sa-is-rtlcontent has-text-right' : 'sa-is-ltrcontent';
@@ -51,5 +41,6 @@
         this.isRtl = window.isRtl || false;
       }
     }
+    
   }
 </script>

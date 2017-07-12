@@ -38,32 +38,16 @@
       }
     },
 
-    data() {
-      return {
-        isRtl: false
-      }
-    },
-
-    mounted() {
-      // Read `window.isRtl` at startup
-      this.getWindowIsRtl();
-      
-      // Listening for `toggleDirecion` event to change the direction of userview
-      Event.$on('toggleDirection', () => {
-        this.getWindowIsRtl();
-      });
-    },
-
     computed: {
       profileClassName() {
         return this.isRtl ? 'sa-profile-rtl' : 'sa-profile-ltr'
-      }
-    },
-    
-    methods: {
-      getWindowIsRtl() {
-        this.isRtl = window.isRtl || false;
+      },
+
+      // Determines if the screen is right-to-left or not by reading its value from the global store
+      isRtl() {
+        return this.$store.state.isRtl;
       }
     }
+  
   }
 </script>

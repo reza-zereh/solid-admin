@@ -30,26 +30,18 @@ export default {
 
   data() {
     return {
-      isRtl: false,
       localValue: this.value
     }
   },
-
-  mounted() {
-    // Read `window.isRtl` at startup
-    this.getWindowIsRtl();
-
-    // Listening for `toggleDirecion` event to change the direction of input
-    Event.$on('toggleDirection', () => {
-      this.getWindowIsRtl();
-    });
+  
+  computed: {
+    // Determines if the screen is right-to-left or not by reading its value from the global store
+    isRtl() {
+      return this.$store.state.isRtl;
+    }
   },
 
   methods: {
-    getWindowIsRtl() {
-      this.isRtl = window.isRtl || false;
-    },
-
     // adding v-model support for this custom component
     updateValue(value) {
       this.localValue = value;

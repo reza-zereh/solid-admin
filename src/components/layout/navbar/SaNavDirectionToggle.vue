@@ -13,10 +13,9 @@
 
   export default {
     methods: {
-      // Inverse the value of `window.isRtl` and fire an event
+      // Reverse the value of `store.state.isRtl` by commiting a mutation
       toggleDirection() {
-        window.isRtl = !window.isRtl;
-        Event.$emit('toggleDirection');
+        this.$store.commit('toggleIsRtl');
       }
     }
   }

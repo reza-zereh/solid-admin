@@ -26,7 +26,6 @@ export default {
 
   data() {
     return {
-      isRtl: false,
       tabs: []
     }
   },
@@ -36,16 +35,11 @@ export default {
     this.tabs = this.$children;
   },
 
-  mounted() {
-    // Read `window.isRtl` at startup
-    this.getWindowIsRtl();
-
-    // Listening for `toggleDirecion` event to change the direction of this `tabs` component
-    Event.$on('toggleDirection', () => {
-      this.getWindowIsRtl();
-    });
-
-
+  computed: {
+    // Determines if the screen is right-to-left or not by reading its value from the global store
+    isRtl() {
+      return this.$store.state.isRtl;
+    }
   },
 
   methods: {
@@ -55,11 +49,6 @@ export default {
         tab.isActive = (tab.name == selectedTab.name);
       });
     },
-
-    getWindowIsRtl() {
-      this.isRtl = window.isRtl || false;
-    }
-
   }
 }
 </script>
