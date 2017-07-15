@@ -1,12 +1,13 @@
 <template>
   <form>
-    <sa-input label="Sa Input" id="sa-input" v-model="content"></sa-input>
+    <sa-input label="Sa Input" id="sa-input" v-model="content" type="danger"></sa-input>
+    
+    <sa-input label="GInput" id="sa-input" v-model="content" type="info" flow="horizontal"></sa-input>
 
     <sa-textarea label="Sa Textarea" v-model="text"></sa-textarea>
 
-    <sa-input-horizontal label="Horizontal input"></sa-input-horizontal>
+    <sa-textarea label="Sa Textarea" v-model="text" type="success" flow="horizontal"></sa-textarea>
 
-    <sa-textarea-horizontal label="Horizontal Textarea" v-model="text"></sa-textarea-horizontal>
   
     <div class="field">
       <label class="label" for="username">Username</label>
@@ -89,15 +90,11 @@
 <script>
 import SaInput from '../features/form/SaInput.vue';
 import SaTextarea from '../features/form/SaTextarea.vue';
-import SaInputHorizontal from '../features/form/SaInputHorizontal.vue';
-import SaTextareaHorizontal from '../features/form/SaTextareaHorizontal.vue';
 
 export default {
   components: {
     'sa-input': SaInput,
-    'sa-textarea': SaTextarea,
-    'sa-input-horizontal': SaInputHorizontal,
-    'sa-textarea-horizontal': SaTextareaHorizontal
+    'sa-textarea': SaTextarea
   },
 
   data() {
