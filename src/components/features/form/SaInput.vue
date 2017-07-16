@@ -3,33 +3,37 @@
       Form's label and text input component with standard HTML5 attributes
 
       Usage:
-        <sa-input label='label' name='name' id='id' 
+        <sa-input type='text/number' label='label' name='name' id='id' 
                   placeholder='placeholder' 
                   v-model='data'
-                  type='success/danger/info/warning'
+                  color='success/danger/info/warning'
                   flow='horizontal/vertical'
+                  :required='true/false'
         >
         </sa-input>
 
         * 'label' property is the only required one
-        * default flow is 'vertical'
+        * default type = 'text'
+        * default flow = 'vertical'
+        * default required = 'false'
   -->
   <div class="field">
     <!--
-      Template for when input is vertical (default)
+      Template when input is vertical (default)
     -->
     <div class="field" :class="{'has-text-right': isRtl}" v-if="flow === 'vertical'">
       <label class="label" :for="id">{{label}}</label>
       <p class="control">
-        <input class="input" type="text" :name="name" :id="id" 
-               :placeholder="placeholder" :class="[isRtl ? 'has-text-right' : '', ` is-${type}`]" 
+        <input class="input" :type="type == 'number' ? 'number' : 'text'" :name="name" :id="id" 
+               :placeholder="placeholder" :required="required"
+               :class="[isRtl ? 'has-text-right' : '', ` is-${color}`]" 
                :value="localValue" @input="updateValue($event.target.value)"
         >
       </p>
     </div>
 
     <!--
-      Template for when input is horizontal
+      Template when input is horizontal
     -->
     <div class="field is-horizontal" 
         :class="{'has-text-right sa-row-reverse sa-form-horizontal-label': isRtl}" 
@@ -41,14 +45,16 @@
       <div class="field-body">
         <div class="field">
           <div class="control">
-            <input class="input" type="text" :name="name" :id="id" 
-                   :placeholder="placeholder" :class="[isRtl ? 'has-text-right' : '', ` is-${type}`]" 
+            <input class="input" :type="type == 'number' ? 'number' : 'text'" :name="name" :id="id" 
+                   :placeholder="placeholder" :required="required"
+                   :class="[isRtl ? 'has-text-right' : '', ` is-${color}`]" 
                    :value="localValue" @input="updateValue($event.target.value)"
             >
           </div>
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -57,12 +63,14 @@ export default {
   name: 'TextInput',
   props: {
     'label'      : { required: true },
+    'type'       : { default : 'text'},
     'name'       : { default : '' },
     'id'         : { default : '' },
     'placeholder': { default : '' },
+    'required'   : { default : false, type: Boolean },
     'value'      : { default : '' },
-    'type'       : { default: '' },
-    'flow'       : { default: 'vertical' }
+    'color'      : { default : '' },
+    'flow'       : { default : 'vertical' }
   },
 
   data() {

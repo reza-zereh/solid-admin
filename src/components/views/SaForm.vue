@@ -2,13 +2,13 @@
   <form>
     <sa-tabs>
       <sa-tab name="First pane" :selected="true">
-        <sa-input label="Sa Input" id="sa-input" v-model="content" type="danger"></sa-input>
+        <sa-input label="Sa Input" id="sa-input" v-model="content" color="danger" type="number"></sa-input>
         
-        <sa-input label="GInput" id="sa-input" v-model="content" type="info" flow="horizontal"></sa-input>
+        <sa-input label="GInput" id="sa-input" v-model="content" color="success" flow="horizontal" :required="true"></sa-input>
 
-        <sa-textarea label="Sa Textarea" v-model="text"></sa-textarea>
+        <sa-textarea label="Sa Textarea" v-model="text" :required="true"></sa-textarea>
 
-        <sa-textarea label="Sa Textarea" v-model="text" type="success" flow="horizontal"></sa-textarea>
+        <sa-textarea label="Sa Textarea" v-model="text" color="success" flow="horizontal"></sa-textarea>
       </sa-tab>
 
       <sa-tab name="2nd Pane">
