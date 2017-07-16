@@ -80,6 +80,7 @@
         </div>
       </sa-tab>
 
+      <sa-tab name="Something"></sa-tab>
     </sa-tabs>
 
     <hr>

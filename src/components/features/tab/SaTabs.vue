@@ -4,7 +4,7 @@
     -->
   <div>
     <!-- Tabs name -->
-    <div class="tabs is-boxed">
+    <div class="tabs is-boxed sa-tabs">
       <ul :class="{ 'sa-row-reverse': isRtl }">
         <li v-for="tab in tabs" :class="{ 'is-active': tab.isActive }">
           <a @click="tabClicked(tab)">

@@ -346,3 +346,12 @@ body {
   margin-left: 1.5rem;
   margin-right: 0;
 }
+
+.sa-tabs {
+  a {
+    color: $tab-link-color;
+  }
+  li.is-active a {
+    color: $tab-active-color;
+  }
+}
