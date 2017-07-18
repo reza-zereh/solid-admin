@@ -1,7 +1,9 @@
 <template>
   <div>
     <h1>Admin Dashboard</h1>
-    <sa-modal title="Custom title"
+    <button class="button is-primary" @click="showModal()">Show Modal</button>
+     <!-- <sa-modal title="Custom title"
+              content="Is this going well?"
               :show-header="true"
               :show-footer="true"
               ok-text="Confirm"
@@ -9,17 +11,40 @@
               cancel-text="Close"
               :show-cancel="true"
     >
-      Whooa!!
-    </sa-modal>
+    </sa-modal>  -->
   </div>
 </template>
 
 <script>
-import SaModal from '../features/modal/SaModal.vue';
+// import SaModal from '../features/modal/SaModal.vue';
 
 export default {
   components: {
-    SaModal
+    // SaModal
+  },
+
+  data() {
+    return {
+    }
+  },
+
+  methods: {
+    onModalOk() {
+      alert('Modal confirmed');
+    },
+    onModalCancel() {
+      alert('Modal canceled');
+    },
+    showModal() {
+      this.$modal.open({
+        title: 'Fucking modal',
+        content: 'Are you sure!?',
+        type: 'success',
+        icon: 'fa-exclamation-triangle',
+        onOk: this.onModalOk,
+        onCancel: this.onModalCancel,
+      });
+    }
   }
 }
 </script>

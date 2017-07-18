@@ -19,6 +19,9 @@ import { router } from './routes/routes';
 // Central store object
 import { store } from './store/store';
 
+import Modal from './components/features/modal';
+Vue.prototype.$modal = Modal;
+
 new Vue({
   el: '#app',
   router: router,

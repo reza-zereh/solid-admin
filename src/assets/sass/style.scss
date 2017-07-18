@@ -355,3 +355,14 @@ body {
     color: $tab-active-color;
   }
 }
+
+/** Modal
+================================================================ */
+.sa-modal {
+  .modal-card-body {
+    display: flex;
+    .icon {
+      margin: 0 20px;
+    }
+  }
+}
