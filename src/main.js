@@ -19,6 +19,8 @@ import { router } from './routes/routes';
 // Central store object
 import { store } from './store/store';
 
+// Import modal component and registers it as global component
+// to be accessible in all other components
 import Modal from './components/features/modal';
 Vue.prototype.$modal = Modal;
 

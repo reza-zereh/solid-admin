@@ -2,7 +2,11 @@ import Vue from 'vue';
 import { store } from '../../../store/store.js';
 import SaModal from './SaModal.vue';
 
-// Create an instance of ModalComponent and shows it
+/**
+ * Creates an instance of ModalComponent (Vue subclass)
+ * connects it to central store management (Vuex) and shows the modal
+ * @param {Object} propsData 
+ */
 function open(propsData) {
   const ModalComponent = Vue.extend(SaModal);
   return new ModalComponent({
@@ -12,7 +16,7 @@ function open(propsData) {
   });
 }
 
-// Fluent API for opening a modal with some predifined properties
+// Fluent API for opening different type of modals with some predifined properties
 // e.g: this.$modal.success({options})
 export default {
   open(params) {

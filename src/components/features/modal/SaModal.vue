@@ -18,6 +18,8 @@
       >
       </sa-modal>  
 
+      Or dynamicaly within code: this.$modal.open({options})
+      Types: open, info, success, warning, error
   -->
   <div class="modal sa-modal" v-if="isActive" :class="{ 'is-active': isActive }">
     <div class="modal-background" @click="handleCancel"></div>
