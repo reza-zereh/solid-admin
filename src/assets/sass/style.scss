@@ -9,18 +9,17 @@ body {
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
 }
 
-
 /* Flex modifiers
 ================================================================*/
-
 .sa-row-reverse {
   flex-direction: row-reverse;
 }
-
 .sa-flex-start {
   justify-content: flex-start;
 }
-
+.sa-flex-end {
+  justify-content: flex-end
+}
 
 /* Top Navbar
 ================================================================*/
@@ -363,6 +362,19 @@ body {
     display: flex;
     .icon {
       margin: 0 20px;
+    
+      &.is-success { color: $success; }
+      &.is-warning { color: $warning; }
+      &.is-danger { color: $danger; }
+      &.is-primary { color: $primary; }
+      &.is-info { color: $info; }
+    }
+  }
+
+  .modal-card-foot {
+     &.sa-modal-foot-rtl .button:not(:last-child) {
+      margin-left: 10px;
+      margin-right: 0;
     }
   }
 }

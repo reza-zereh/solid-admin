@@ -2,7 +2,7 @@
   <div>
     <h1>Admin Dashboard</h1>
     <button class="button is-primary" @click="showModal()">Show Modal</button>
-     <!-- <sa-modal title="Custom title"
+      <!--<sa-modal title="Custom title"
               content="Is this going well?"
               :show-header="true"
               :show-footer="true"
@@ -10,8 +10,8 @@
               :show-ok="true"
               cancel-text="Close"
               :show-cancel="true"
-    >
-    </sa-modal>  -->
+      >
+      </sa-modal>  -->
   </div>
 </template>
 
@@ -36,11 +36,10 @@ export default {
       alert('Modal canceled');
     },
     showModal() {
-      this.$modal.open({
+      this.$modal.error({
         title: 'Fucking modal',
         content: 'Are you sure!?',
-        type: 'success',
-        icon: 'fa-exclamation-triangle',
+        // type: 'success',
         onOk: this.onModalOk,
         onCancel: this.onModalCancel,
       });
