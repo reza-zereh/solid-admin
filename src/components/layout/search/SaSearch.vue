@@ -4,7 +4,7 @@
 
     TODO: form action link, submit, focused on show
    -->
-  <transition name="sa-search">
+  <transition name="sa-search-anm">
     <nav class="nav nav-fixed sa-search-nav" v-if="show">
       <div class="sa-search-wrapper">
         <form action="/#search" method="post">

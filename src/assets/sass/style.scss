@@ -104,18 +104,13 @@ body {
   & .sa-search-close {
     pointer-events: auto !important;
     cursor: pointer;
+
+    &:hover {
+      background-color: rgba(10, 10, 10, 0.1);
+      color: rgba(54, 54, 54, 0.3);
+      border-radius: 50%;
+    }
   }
-}
-
-// Transition effect classes for search form
-.sa-search-enter,
-.sa-search-leave-to {
-  opacity: 0;
-}
-
-.sa-search-enter-active,
-.sa-search-leave-active {
-  transition: opacity 0.5s;
 }
 
 
@@ -243,35 +238,17 @@ body {
   }
 }
 
-// Submenu transition effects
-// transition name: `sa-submenu-anm`
-.sa-submenu-anm-enter,
-.sa-submenu-anm-leave-to {
-  transform: scaleY(0);
-  transform-origin: top;
-}
-
-.sa-submenu-anm-enter-active,
-.sa-submenu-anm-leave-active {
-  transition: all .3s ease-in-out;
-}
-
-
 /* Main content
 ================================================================ */
 
 .sa-main-content {
-  padding: 26px; // When sidebar is hidden
+  padding: $page-content-padding; 
+  // When sidebar is hidden
   &.sa-content-nosidebar {
     margin-left: 0 !important;
     margin-right: 0 !important;
-  } // When main sidebar is active and RTL
-  &.sa-is-rtlcontent {
-    margin-right: $sidebar-width;
-  } // When main sidebar is active and LTR
-  &.sa-is-ltrcontent {
-    margin-left: $sidebar-width;
-  }
+  } 
+  transition: margin .3s ease-in-out;
 }
 
 

@@ -1,3 +1,6 @@
+/*//////////////////////////////////////////////////////////////////////
+// Query for devices with screen SMALLER than 768px (mobile)
+//////////////////////////////////////////////////////////////////////*/
 @media screen and (max-width: 768px) {
 
 /* Top Navbar 
@@ -17,4 +20,23 @@
   text-align: inherit; 
 }
 
+} // End of query for mobile devices
+
+
+/*//////////////////////////////////////////////////////////////////////
+// Query for devices with screen WIDER than 768px (tablets+)
+//////////////////////////////////////////////////////////////////////*/
+@media screen and (min-width: 769px) {
+
+.sa-main-content {
+  // When main sidebar is active and RTL
+  &.sa-is-rtlcontent {
+    margin-right: $sidebar-width;
+  } 
+  // When main sidebar is active and LTR
+  &.sa-is-ltrcontent {
+    margin-left: $sidebar-width;
+  }
 }
+
+} // End of query for tablet+ devices

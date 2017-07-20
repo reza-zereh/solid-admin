@@ -1,0 +1,53 @@
+// Sidebar transition effects
+// transition names: 'sa-sidebar-ltr-anm' and 'sa-sidebar-rtl-anm', 'sa-sidebar-modal-background-anm'
+// --------------------------------------------------------------------------------------------------------
+.sa-sidebar-ltr-anm-enter,
+.sa-sidebar-ltr-anm-leave-to {
+  transform: translate3d(-$sidebar-width, 0, 0);
+}
+.sa-sidebar-rtl-anm-enter,
+.sa-sidebar-rtl-anm-leave-to {
+  transform: translate3d($sidebar-width, 0, 0);
+}
+.sa-sidebar-ltr-anm-enter-active,
+.sa-sidebar-ltr-anm-leave-active,
+.sa-sidebar-rtl-anm-enter-active,
+.sa-sidebar-rtl-anm-leave-active { 
+    transition: transform .3s ease-in-out;
+}
+
+.sa-sidebar-modal-background-anm-enter,
+.sa-sidebar-modal-background-anm-leave-to {
+  opacity: 0;
+}
+.sa-sidebar-modal-background-anm-enter-active,
+.sa-sidebar-modal-background-anm-leave-active {
+  transition: opacity 0.25s;
+}
+
+// Submenu transition effects
+// transition name: `sa-submenu-anm`
+// --------------------------------------------------------------------------------------------------------
+.sa-submenu-anm-enter,
+.sa-submenu-anm-leave-to {
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.sa-submenu-anm-enter-active,
+.sa-submenu-anm-leave-active {
+  transition: all .3s ease-in-out;
+}
+
+// Search form transition effects
+// transition name: 'sa-search-anm'
+// --------------------------------------------------------------------------------------------------------
+.sa-search-anm-enter,
+.sa-search-anm-leave-to {
+  transform: translateY(-$top-navbar-height);
+}
+
+.sa-search-anm-enter-active,
+.sa-search-anm-leave-active {
+  transition: transform 0.3s ease-in-out;
+}

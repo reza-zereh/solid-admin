@@ -1,41 +1,49 @@
 <template>
   <!-- 
-      Main sidebar component. Automatically place right or left side of screen based on `window.isRtl` setting.
-      
-      NOTE: Except <sa-sidebar-userview> and <sa-sidebar-label>, all other components should be placed within <sa-sidebar-menu> component.
-      TODO: Add transition effect for showing/hiding
-     -->
-  <div class="" v-if="showSidebar">
-    <aside class="menu sa-sidebar" :class="{'sa-is-rtlsidebar': isRtl}">
-      <sa-sidebar-userview backgroundSrc="/public/images/userview.jpg" profileSrc="/public/images/profile.jpg" username="John Doe" email="ironcladgeek@hotmail.com">
-      </sa-sidebar-userview>
+    Main sidebar component. Automatically place right or left side of screen based on `window.isRtl` setting.
+    
+    NOTE: Except <sa-sidebar-userview> and <sa-sidebar-label>, all other components should be placed within <sa-sidebar-menu> component.
+    TODO: Add transition effect for showing/hiding
+  -->
+  <div>
+    <transition :name="isRtl ? 'sa-sidebar-rtl-anm' : 'sa-sidebar-ltr-anm'">
+      <aside class="menu sa-sidebar" :class="{'sa-is-rtlsidebar': isRtl}" v-if="showSidebar">
+        <sa-sidebar-userview backgroundSrc="/public/images/userview.jpg" 
+                             profileSrc="/public/images/profile.jpg" 
+                             username="John Doe" 
+                             email="ironcladgeek@hotmail.com"
+        >
+        </sa-sidebar-userview>
   
-      <sa-sidebar-label>General</sa-sidebar-label>
-      <sa-sidebar-menu>
-        <sa-sidebar-menuitem to="#dashboard" fa-icon="fa-tachometer" @click="dashboard()">Dashboard</sa-sidebar-menuitem>
-        <sa-sidebar-menuitem to="form" fa-icon="fa-file-text-o" :router-link="true">Form</sa-sidebar-menuitem>
-        <sa-sidebar-menuitem to="#mails" fa-icon="fa-envelope-o">Mails</sa-sidebar-menuitem>
-      </sa-sidebar-menu>
+        <sa-sidebar-label>General</sa-sidebar-label>
+        <sa-sidebar-menu>
+          <sa-sidebar-menuitem to="/#" fa-icon="fa-tachometer" @click="dashboard()">Dashboard</sa-sidebar-menuitem>
+          <sa-sidebar-menuitem to="form" fa-icon="fa-file-text-o" :router-link="true">Form</sa-sidebar-menuitem>
+          <sa-sidebar-menuitem to="#mails" fa-icon="fa-envelope-o">Mails</sa-sidebar-menuitem>
+        </sa-sidebar-menu>
   
-      <sa-sidebar-label>Administration</sa-sidebar-label>
+        <sa-sidebar-label>Administration</sa-sidebar-label>
   
-      <sa-sidebar-menu>
-        <sa-sidebar-submenu heading="System" fa-icon="fa-cog">
-          <sa-sidebar-menuitem>Settings</sa-sidebar-menuitem>
-          <sa-sidebar-menuitem>Tools</sa-sidebar-menuitem>
-          <sa-sidebar-menuitem>Users</sa-sidebar-menuitem>
-        </sa-sidebar-submenu>
+        <sa-sidebar-menu>
+          <sa-sidebar-submenu heading="System" fa-icon="fa-cog">
+            <sa-sidebar-menuitem>Settings</sa-sidebar-menuitem>
+            <sa-sidebar-menuitem>Tools</sa-sidebar-menuitem>
+            <sa-sidebar-menuitem>Users</sa-sidebar-menuitem>
+          </sa-sidebar-submenu>
   
-        <sa-sidebar-submenu heading="Catalog" fa-icon="fa-tags">
-          <sa-sidebar-menuitem>Categories</sa-sidebar-menuitem>
-          <sa-sidebar-menuitem>Products</sa-sidebar-menuitem>
-          <sa-sidebar-menuitem>Gift Cards</sa-sidebar-menuitem>
-          <sa-sidebar-menuitem>Vochers</sa-sidebar-menuitem>
-        </sa-sidebar-submenu>
-      </sa-sidebar-menu>
+          <sa-sidebar-submenu heading="Catalog" fa-icon="fa-tags">
+            <sa-sidebar-menuitem>Categories</sa-sidebar-menuitem>
+            <sa-sidebar-menuitem>Products</sa-sidebar-menuitem>
+            <sa-sidebar-menuitem>Gift Cards</sa-sidebar-menuitem>
+            <sa-sidebar-menuitem>Vochers</sa-sidebar-menuitem>
+          </sa-sidebar-submenu>
+        </sa-sidebar-menu>
   
-    </aside>
-    <div class="modal-background is-hidden-tablet sa-sidebar-modal-background" @click="hideSidebar()"></div>
+      </aside>
+    </transition>
+    <transition name="sa-sidebar-modal-background-anm">
+      <div class="modal-background is-hidden-tablet sa-sidebar-modal-background" @click="hideSidebar()" v-if="showSidebar"></div>
+    </transition>
   </div>
 </template>
 
