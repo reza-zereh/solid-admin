@@ -9,6 +9,7 @@
                      color='success/danger/info/warning'
                      flow='horizontal/vertical'
                     :required='true/false'
+                    text-align='left/right'
         >
         </sa-textarea>
 
@@ -26,7 +27,7 @@
         <textarea class="textarea" :name="name" :id="id" 
                   :placeholder="placeholder" :required="required"
                   :class="[isRtl ? 'has-text-right' : '', ` is-${color}`]"
-                  :value="localValue" 
+                  :value="localValue" :style="inlineStyle" 
                   @input="updateValue($event.target.value)"
         >
         </textarea>
@@ -49,7 +50,7 @@
             <textarea class="textarea" :name="name" :id="id" 
                       :placeholder="placeholder" :required="required" 
                       :class="[isRtl ? 'has-text-right' : '', ` is-${color}`]"
-                      :value="localValue" 
+                      :value="localValue" :style="inlineStyle" 
                       @input="updateValue($event.target.value)"
             >
             </textarea>
@@ -72,8 +73,8 @@ export default {
     'required'   : { default : false, type: Boolean },
     'value'      : { default : '' },
     'color'      : { default: '' },
-    'flow'       : { default: 'vertical' }
-
+    'flow'       : { default: 'vertical' },
+    'text-align' : { default : '', type: String }
   },
 
   data() {
@@ -86,6 +87,13 @@ export default {
     // Determines if the screen is right-to-left or not by reading its value from the global store
     isRtl() {
       return this.$store.state.isRtl;
+    },
+
+    // Generate inline style rules for the element
+    inlineStyle() {
+      if (this.textAlign !== '') {
+        return (this.textAlign === 'left') ? 'text-align: left !important;' : 'text-align: right !important;'
+      }
     }
   },
 
