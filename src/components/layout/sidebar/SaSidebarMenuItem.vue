@@ -14,7 +14,7 @@
         </sa-sidebar-menu>
      -->
   <li @click="itemClicked">
-    <router-link :to="to" active-class="is-active" v-if="routerLink">
+    <router-link :to="to" active-class="is-active" exact v-if="routerLink">
       <!-- Item's icon - FontAwesome standard class name (ex: fa-search) that should be set on `fa-icon` property' -->
       <span class="icon" v-if="faIcon">
         <i class="fa " :class="faIcon"></i>
@@ -37,13 +37,15 @@ export default {
   props: {
     'to': {
       default: '#',
-      type: String
+      type   : String
     },
     'fa-icon': {
-      default: false
+      default: false,
+      type   : String
     },
     'router-link': {
-      default: false
+      default: false,
+      type   : Boolean
     }
   },
 

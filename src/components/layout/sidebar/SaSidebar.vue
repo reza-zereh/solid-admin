@@ -17,9 +17,9 @@
   
         <sa-sidebar-label>General</sa-sidebar-label>
         <sa-sidebar-menu>
-          <sa-sidebar-menuitem to="/#" fa-icon="fa-tachometer" @click="dashboard()">Dashboard</sa-sidebar-menuitem>
-          <sa-sidebar-menuitem to="form" fa-icon="fa-file-text-o" :router-link="true">Form</sa-sidebar-menuitem>
-          <sa-sidebar-menuitem to="#mails" fa-icon="fa-envelope-o">Mails</sa-sidebar-menuitem>
+          <sa-sidebar-menuitem to="/" fa-icon="fa-tachometer" :router-link="true" @click="dashboard()">Dashboard</sa-sidebar-menuitem>
+          <sa-sidebar-menuitem to="/form" fa-icon="fa-file-text-o" :router-link="true">Form</sa-sidebar-menuitem>
+          <sa-sidebar-menuitem to="/mails" fa-icon="fa-envelope-o" :router-link="false">Mails</sa-sidebar-menuitem>
         </sa-sidebar-menu>
   
         <sa-sidebar-label>Administration</sa-sidebar-label>
