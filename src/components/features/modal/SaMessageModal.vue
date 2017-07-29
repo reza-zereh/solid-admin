@@ -1,28 +1,13 @@
 <template >
   <!--
-    Regular Modal component.
+    Message Modal component.
 
     Usage:
-      <sa-modal title="Custom title"
-                content="Modal message"
-                :show-header="true/false"
-                :show-footer="true/false"
-                type="success/info/error/warning"
-                ok-text="Confirm"
-                :show-ok="true"
-                cancel-text="Cancel"
-                :show-cancel="true"
-                icon="fa-icon"
-                onOk="callback()"
-                onCancel="callback()"
-      >
-      </sa-modal>  
+      this.$modal.open({options});
 
-    Note: 
-      This modal component IS VISIBLE (is-active) by default and you have to 
-      control its visibility on parent component level via v-if/v-show directive.
+      Types: open, info, success, warning, error
   -->
-  <div class="modal is-active sa-modal">
+  <div class="modal sa-modal" v-if="isActive" :class="{ 'is-active': isActive }">
     <div class="modal-background" @click="handleCancel"></div>
     <button class="modal-close is-large" @click="handleCancel"></button>
     <div class="modal-card">
@@ -37,7 +22,6 @@
         <p>
           {{ content }}
         </p>
-        <slot></slot>
       </section>
 
       <footer class="modal-card-foot" v-if="showFooter"
@@ -57,14 +41,30 @@
 import ModalMixin from './ModalMixin.js';
 
 export default {
-  name: 'Modal',
+  name: 'MessageModal',
 
   mixins: [ ModalMixin ],
 
-  methods: {
-    close() {
-      this.$emit('modalClosed');
+  data() {
+    return {
+      isActive: true
     }
   },
+
+  methods: {
+    close() {
+      this.$emit('messageModalClosed');
+      this.isActive = false;
+      this.$el.remove();
+    }
+  },
+
+  mounted() {
+    // Appends the modal component to DOM
+    this.$nextTick(() => {
+      document.body.appendChild(this.$el);
+    })
+  }
+
 }
 </script>

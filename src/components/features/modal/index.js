@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import { store } from '../../../store/store.js';
-import SaModal from './SaModal.vue';
+import SaMessageModal from './SaMessageModal.vue';
 
 /**
  * Creates an instance of ModalComponent (Vue subclass)
@@ -8,7 +8,7 @@ import SaModal from './SaModal.vue';
  * @param {Object} propsData 
  */
 function open(propsData) {
-  const ModalComponent = Vue.extend(SaModal);
+  const ModalComponent = Vue.extend(SaMessageModal);
   return new ModalComponent({
     el: document.createElement('div'),
     store: store,

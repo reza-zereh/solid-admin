@@ -40,7 +40,7 @@ export default {
       type   : String
     },
     'fa-icon': {
-      default: false,
+      default: '',
       type   : String
     },
     'router-link': {
