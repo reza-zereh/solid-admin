@@ -45,6 +45,10 @@ const ModalMixin = {
     onCancel: {
       type: Function,
       default () {}
+    },
+    textAlign: {
+      type: String,
+      default: ''
     }
 
   },
@@ -72,6 +76,19 @@ const ModalMixin = {
     // Generates full class name for bulma types (e.g: is-success)
     typeClass() {
       return `is-${this.type}`;
+    },
+
+    //
+    textAlignClass() {
+      if (this.textAlign === 'right') {
+        return 'sa-row-reverse';
+      }
+      else if(this.textAlign === '' && this.isRtl) {
+        return 'sa-row-reverse';
+      }
+      else if(this.textAlign === '' || this.textAlign === 'left') {
+        return '';
+      }
     }
   },
 };

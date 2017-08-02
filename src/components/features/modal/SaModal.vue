@@ -15,6 +15,7 @@
                 icon="fa-icon"
                 onOk="callback()"
                 onCancel="callback()"
+                text-align="left/right"
       >
       </sa-modal>  
 
@@ -30,14 +31,16 @@
         <p class="modal-card-title" v-text="title" :class="{'has-text-right': isRtl}"></p>
       </header>
 
-      <section class="modal-card-body" :class="{'sa-row-reverse': isRtl}">
+      <section class="modal-card-body" :class="textAlignClass">
         <span class="icon is-medium" :class="typeClass" v-if="icon">
           <i :class="iconClass"></i>
         </span>
-        <p>
+        <p v-if="content">
           {{ content }}
         </p>
+        <div>
         <slot></slot>
+        </div>
       </section>
 
       <footer class="modal-card-foot" v-if="showFooter"

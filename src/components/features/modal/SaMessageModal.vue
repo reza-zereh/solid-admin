@@ -15,7 +15,7 @@
         <p class="modal-card-title" v-text="title" :class="{'has-text-right': isRtl}"></p>
       </header>
 
-      <section class="modal-card-body" :class="{'sa-row-reverse': isRtl}">
+      <section class="modal-card-body" :class="textAlignClass">
         <span class="icon is-medium" :class="typeClass" v-if="icon">
           <i :class="iconClass"></i>
         </span>
