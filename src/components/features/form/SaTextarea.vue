@@ -26,7 +26,7 @@
       <p class="control">
         <textarea class="textarea" :name="name" :id="id" 
                   :placeholder="placeholder" :required="required"
-                  :class="[textAlignClass, ` is-${color}`]" 
+                  :class="[textAlignClass, ` is-${color}`]" :disabled="disabled" 
                   :value="value" @input="updateValue($event.target.value)" ref="input"
         >
         </textarea>
@@ -48,7 +48,7 @@
           <div class="control">
             <textarea class="textarea" :name="name" :id="id" 
                       :placeholder="placeholder" :required="required" 
-                      :class="[textAlignClass, ` is-${color}`]" 
+                      :class="[textAlignClass, ` is-${color}`]" :disabled="disabled"
                       :value="value" @input="updateValue($event.target.value)" ref="input"
             >
             </textarea>
@@ -61,37 +61,11 @@
 </template>
 
 <script>
-import TextAlignMixin from './TextAlignMixin.js';
+import TextInputMixin from './TextInputMixin.js';
 
 export default {
   name: 'Textarea',
-  mixins: [TextAlignMixin],
-  props: {
-    'label'      : { required: true },
-    'name'       : { default : '' },
-    'id'         : { default : '' },
-    'placeholder': { default : '' },
-    'required'   : { default : false, type: Boolean },
-    'value'      : { default : '' },
-    'color'      : { default: '' },
-    'flow'       : { default: 'vertical' },
-    textAlign    : { default : '', type   : String }
-  },
- 
-  computed: {
-    // Determines if the screen is right-to-left or not by reading its value from the global store
-    isRtl() {
-      return this.$store.state.isRtl;
-    }
-  },
-
-  methods: {
-    // adding v-model support for this custom component
-    updateValue(value) {
-      this.$refs.input.value = value;
-      this.$emit('input', value);
-    }
-  }
+  mixins: [TextInputMixin]
 }
 </script>
 

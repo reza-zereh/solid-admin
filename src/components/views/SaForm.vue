@@ -2,9 +2,8 @@
   <form>
     <sa-tabs>
       <sa-tab name="First pane" :selected="true">
-        <sa-input label="Sa Input" id="sa-input"
-                  v-model="content" color="danger" 
-                  type="number" :has-addon="true" text-align="right"
+        <sa-input label="Sa Input" id="sa-input" type="number" 
+                  :has-addon="true" text-align="right"
         >
           <template slot="prepend">
             <a class="button">Go</a>
@@ -14,9 +13,9 @@
           </template>
         </sa-input>
         
-        <sa-input label="GInput" id="sa-input" v-model="content" color="success" flow="horizontal" :required="true" text-align="right"></sa-input>
+        <sa-input label="GInput" id="sa-input2" v-model="content" color="info" flow="horizontal" :required="true" text-align="right"></sa-input>
 
-        <sa-textarea label="Sa Textarea1" v-model="text" :required="true" text-align="right"></sa-textarea>
+        <sa-textarea label="Sa Textarea1" v-model="text" color='danger' :required="true" text-align="right"></sa-textarea>
 
         <sa-textarea label="Sa Textarea2" v-model="text" color="success" flow="horizontal" ></sa-textarea>
       </sa-tab>

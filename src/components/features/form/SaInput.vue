@@ -9,6 +9,7 @@
                   color='success/danger/info/warning'
                   flow='horizontal/vertical'
                   :required='true/false'
+                  :disabled='true/false'
                   :has-addon='true/false'
                   text-align='left/right'
         >
@@ -30,7 +31,7 @@
         <slot name="prepend" v-if="hasAddon"></slot>
         <input class="input" :type="type == 'number' ? 'number' : 'text'" 
                :name="name" :id="id" :placeholder="placeholder" :required="required"
-               :class="[textAlignClass, ` is-${color}`]" 
+               :class="[textAlignClass, ` is-${color}`]" :disabled="disabled"
                :value="value" @input="updateValue($event.target.value)" ref="input"
         >
         <slot name="append" v-if="hasAddon"></slot>
@@ -53,7 +54,7 @@
             <slot name="prepend" v-if="hasAddon"></slot>
             <input class="input" :type="type == 'number' ? 'number' : 'text'" 
                   :name="name" :id="id" :placeholder="placeholder" :required="required"
-                  :class="[textAlignClass, ` is-${color}`]" 
+                  :class="[textAlignClass, ` is-${color}`]" :disabled="disabled"
                   :value="value" @input="updateValue($event.target.value)" ref="input"
             >
             <slot name="append" v-if="hasAddon"></slot>
@@ -66,38 +67,14 @@
 </template>
 
 <script>
-import TextAlignMixin from './TextAlignMixin.js';
+import TextInputMixin from './TextInputMixin.js';
 
 export default {
   name: 'TextInput',
-  mixins: [TextAlignMixin],
+  mixins: [TextInputMixin],
   props: {
-    'label'      : { required: true },
-    'type'       : { default : 'text'},
-    'name'       : { default : '' },
-    'id'         : { default : '' },
-    'placeholder': { default : '' },
-    'required'   : { default : false, type: Boolean },
-    'value'      : { default : '' },
-    'color'      : { default : '' },
-    'flow'       : { default : 'vertical' },
-    hasAddon     : { default : false, type: Boolean },
-    textAlign    : { default : '', type   : String }
-  },
-
-  computed: {
-    // Determines if the screen is right-to-left or not by reading its value from the global store
-    isRtl() {
-      return this.$store.state.isRtl;
-    }
-  },
-
-  methods: {
-    // adding v-model support for this custom component
-    updateValue(value) {
-      this.$refs.input.value = value;
-      this.$emit('input', value);
-    }
+    type    : { default: 'text', type: String },
+    hasAddon: { default: false, type : Boolean }
   }
 }
 </script>  
