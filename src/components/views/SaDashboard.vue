@@ -58,6 +58,7 @@ export default {
         // type: 'success',
         onOk: this.onModalOk,
         onCancel: this.onModalCancel,
+        closeIn: 4
       });
     }
   }

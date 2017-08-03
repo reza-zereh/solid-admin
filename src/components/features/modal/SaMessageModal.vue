@@ -45,6 +45,13 @@ export default {
 
   mixins: [ ModalMixin ],
 
+  props: {
+    closeIn: {
+      default: 0,
+      type: Number
+    }
+  },
+
   data() {
     return {
       isActive: true
@@ -56,6 +63,14 @@ export default {
       this.$emit('messageModalClosed');
       this.isActive = false;
       this.$el.remove();
+    },
+
+    autoClose() {
+      if (this.closeIn > 0) {
+        setTimeout(() => {
+          this.close();
+        }, this.closeIn * 1000);
+      }
     }
   },
 
@@ -64,6 +79,8 @@ export default {
     this.$nextTick(() => {
       document.body.appendChild(this.$el);
     })
+
+    this.autoClose();
   }
 
 }
