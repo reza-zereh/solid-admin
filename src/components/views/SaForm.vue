@@ -4,7 +4,7 @@
       <sa-tab name="First pane" :selected="true">
         <sa-input label="Sa Input" id="sa-input"
                   v-model="content" color="danger" 
-                  type="number" :has-addon="true"
+                  type="number" :has-addon="true" text-align="right"
         >
           <template slot="prepend">
             <a class="button">Go</a>
@@ -16,9 +16,9 @@
         
         <sa-input label="GInput" id="sa-input" v-model="content" color="success" flow="horizontal" :required="true" text-align="right"></sa-input>
 
-        <sa-textarea label="Sa Textarea" v-model="text" :required="true" text-align="right"></sa-textarea>
+        <sa-textarea label="Sa Textarea1" v-model="text" :required="true" text-align="right"></sa-textarea>
 
-        <sa-textarea label="Sa Textarea" v-model="text" color="success" flow="horizontal" text-align="left"></sa-textarea>
+        <sa-textarea label="Sa Textarea2" v-model="text" color="success" flow="horizontal" ></sa-textarea>
       </sa-tab>
 
       <sa-tab name="2nd Pane">

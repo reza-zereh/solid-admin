@@ -9,11 +9,12 @@
                      color='success/danger/info/warning'
                      flow='horizontal/vertical'
                     :required='true/false'
+                    text-align='left/right'
         >
         </sa-textarea>
 
         * 'label' property is the only required one
-        * default flow = 'vertical'
+        * default flow     = 'vertical'
         * default required = 'false'
   -->
   <div class="field">
@@ -25,7 +26,7 @@
       <p class="control">
         <textarea class="textarea" :name="name" :id="id" 
                   :placeholder="placeholder" :required="required"
-                  :class="[isRtl ? 'has-text-right' : '', ` is-${color}`]"
+                  :class="[textAlignClass, ` is-${color}`]" 
                   :value="value" @input="updateValue($event.target.value)" ref="input"
         >
         </textarea>
@@ -47,7 +48,7 @@
           <div class="control">
             <textarea class="textarea" :name="name" :id="id" 
                       :placeholder="placeholder" :required="required" 
-                      :class="[isRtl ? 'has-text-right' : '', ` is-${color}`]"
+                      :class="[textAlignClass, ` is-${color}`]" 
                       :value="value" @input="updateValue($event.target.value)" ref="input"
             >
             </textarea>
@@ -60,8 +61,11 @@
 </template>
 
 <script>
+import TextAlignMixin from './TextAlignMixin.js';
+
 export default {
   name: 'Textarea',
+  mixins: [TextAlignMixin],
   props: {
     'label'      : { required: true },
     'name'       : { default : '' },
@@ -70,8 +74,8 @@ export default {
     'required'   : { default : false, type: Boolean },
     'value'      : { default : '' },
     'color'      : { default: '' },
-    'flow'       : { default: 'vertical' }
-
+    'flow'       : { default: 'vertical' },
+    textAlign    : { default : '', type   : String }
   },
  
   computed: {

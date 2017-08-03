@@ -10,6 +10,7 @@
                   flow='horizontal/vertical'
                   :required='true/false'
                   :has-addon='true/false'
+                  text-align='left/right'
         >
         </sa-input>
 
@@ -29,7 +30,7 @@
         <slot name="prepend" v-if="hasAddon"></slot>
         <input class="input" :type="type == 'number' ? 'number' : 'text'" 
                :name="name" :id="id" :placeholder="placeholder" :required="required"
-               :class="[isRtl ? 'has-text-right' : '', ` is-${color}`]" 
+               :class="[textAlignClass, ` is-${color}`]" 
                :value="value" @input="updateValue($event.target.value)" ref="input"
         >
         <slot name="append" v-if="hasAddon"></slot>
@@ -52,7 +53,7 @@
             <slot name="prepend" v-if="hasAddon"></slot>
             <input class="input" :type="type == 'number' ? 'number' : 'text'" 
                   :name="name" :id="id" :placeholder="placeholder" :required="required"
-                  :class="[isRtl ? 'has-text-right' : '', ` is-${color}`]" 
+                  :class="[textAlignClass, ` is-${color}`]" 
                   :value="value" @input="updateValue($event.target.value)" ref="input"
             >
             <slot name="append" v-if="hasAddon"></slot>
@@ -65,8 +66,11 @@
 </template>
 
 <script>
+import TextAlignMixin from './TextAlignMixin.js';
+
 export default {
   name: 'TextInput',
+  mixins: [TextAlignMixin],
   props: {
     'label'      : { required: true },
     'type'       : { default : 'text'},
@@ -77,7 +81,8 @@ export default {
     'value'      : { default : '' },
     'color'      : { default : '' },
     'flow'       : { default : 'vertical' },
-    hasAddon     : { default : false, type: Boolean }
+    hasAddon     : { default : false, type: Boolean },
+    textAlign    : { default : '', type   : String }
   },
 
   computed: {
