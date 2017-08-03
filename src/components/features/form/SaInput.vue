@@ -9,13 +9,15 @@
                   color='success/danger/info/warning'
                   flow='horizontal/vertical'
                   :required='true/false'
+                  :has-addon='true/false'
         >
         </sa-input>
 
         * 'label' property is the only required one
-        * default type = 'text'
-        * default flow = 'vertical'
-        * default required = 'false'
+        * default type      = 'text'
+        * default flow      = 'vertical'
+        * default required  = 'false'
+        * default has-addon = 'false'
   -->
   <div class="field">
     <!--
@@ -23,12 +25,14 @@
     -->
     <div class="field" :class="{'has-text-right': isRtl}" v-if="flow === 'vertical'">
       <label class="label" :for="id">{{label}}</label>
-      <p class="control">
-        <input class="input" :type="type == 'number' ? 'number' : 'text'" :name="name" :id="id" 
-               :placeholder="placeholder" :required="required"
+      <p class="control" :class="{'sa-input-addon': hasAddon}">
+        <slot name="prepend" v-if="hasAddon"></slot>
+        <input class="input" :type="type == 'number' ? 'number' : 'text'" 
+               :name="name" :id="id" :placeholder="placeholder" :required="required"
                :class="[isRtl ? 'has-text-right' : '', ` is-${color}`]" 
                :value="value" @input="updateValue($event.target.value)" ref="input"
         >
+        <slot name="append" v-if="hasAddon"></slot>
       </p>
     </div>
 
@@ -44,12 +48,14 @@
       </div>
       <div class="field-body">
         <div class="field">
-          <div class="control">
-            <input class="input" :type="type == 'number' ? 'number' : 'text'" :name="name" :id="id" 
-                   :placeholder="placeholder" :required="required"
-                   :class="[isRtl ? 'has-text-right' : '', ` is-${color}`]" 
-                   :value="value" @input="updateValue($event.target.value)" ref="input"
+          <div class="control" :class="{'sa-input-addon': hasAddon}">
+            <slot name="prepend" v-if="hasAddon"></slot>
+            <input class="input" :type="type == 'number' ? 'number' : 'text'" 
+                  :name="name" :id="id" :placeholder="placeholder" :required="required"
+                  :class="[isRtl ? 'has-text-right' : '', ` is-${color}`]" 
+                  :value="value" @input="updateValue($event.target.value)" ref="input"
             >
+            <slot name="append" v-if="hasAddon"></slot>
           </div>
         </div>
       </div>
@@ -70,7 +76,8 @@ export default {
     'required'   : { default : false, type: Boolean },
     'value'      : { default : '' },
     'color'      : { default : '' },
-    'flow'       : { default : 'vertical' }
+    'flow'       : { default : 'vertical' },
+    hasAddon     : { default : false, type: Boolean }
   },
 
   computed: {

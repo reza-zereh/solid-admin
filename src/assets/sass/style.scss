@@ -332,6 +332,16 @@ body {
   }
 }
 
+.sa-input-addon {
+  display: flex;
+  .input {
+    flex: 1;
+  }
+  .button, .input {
+    border-radius: 0;
+  }
+}
+
 /** Modal
 ================================================================ */
 .sa-modal {

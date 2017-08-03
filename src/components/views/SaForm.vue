@@ -2,7 +2,17 @@
   <form>
     <sa-tabs>
       <sa-tab name="First pane" :selected="true">
-        <sa-input label="Sa Input" id="sa-input" v-model="content" color="danger" type="number"></sa-input>
+        <sa-input label="Sa Input" id="sa-input"
+                  v-model="content" color="danger" 
+                  type="number" :has-addon="true"
+        >
+          <template slot="prepend">
+            <a class="button">Go</a>
+          </template>
+          <template slot="append">
+            <a class="button">Addon</a>
+          </template>
+        </sa-input>
         
         <sa-input label="GInput" id="sa-input" v-model="content" color="success" flow="horizontal" :required="true" text-align="right"></sa-input>
 

@@ -39,7 +39,7 @@
           {{ content }}
         </p>
         <div>
-        <slot></slot>
+          <slot></slot>
         </div>
       </section>
 
