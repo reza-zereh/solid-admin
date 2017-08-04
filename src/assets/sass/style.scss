@@ -29,7 +29,7 @@ body {
   box-shadow: 0 3px 6px rgba(0, 0, 0, .3);
   height: $top-navbar-height;
   & a {
-    color: $top-navbar-link-color;
+    color: $top-navbar-link-color !important;
   }
 }
 
