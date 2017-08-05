@@ -24,33 +24,34 @@ $red:          hsl(348, 100%, 61%) !default;
 //  Primary colors
 $primary: $turquoise !default;
 
-$info: $blue !default;
+$info   : $blue !default;
 $success: $green !default;
 $warning: $yellow !default;
-$danger: $red !default;
+$danger : $red !default;
 
 $light: $white-ter !default;
-$dark: $grey-darker !default;
+$dark : $grey-darker !default;
 
 // colors
 ////////////////////////////////////////////////
 
 // $white: #FFFFFF;
 // $black: #000000;
-$white-smoke: #ECECEC;
-$solitude: #F3F4F5;
-$night-rider: #333;
-$navy-blue: #0277bd;
-$empress: #757575;
-$tundora: #4a4a4a;
-$gainsboro: #E5E5E5;
-$cod-grey: #0A0A0A;
-$havelock-blue: #4b9cdb;
-$science-blue: #0366D6;
-$polo-blue: #92B0D3;
+$white-smoke    : #ECECEC;
+$solitude       : #F3F4F5;
+$night-rider    : #333;
+$navy-blue      : #0277bd;
+$empress        : #757575;
+$tundora        : #4a4a4a;
+$silver         : #CCCCCC;
+$gainsboro      : #E5E5E5;
+$cod-grey       : #0A0A0A;
+$havelock-blue  : #4b9cdb;
+$science-blue   : #0366D6;
+$polo-blue      : #92B0D3;
 $cornflower-blue: #66afe9;
-$hawkes-blue: #D3E6FD;
-$dodger-blue: #2196F3;
+$hawkes-blue    : #D3E6FD;
+$dodger-blue    : #2196F3;
 
 // Sizes
 ////////////////////////////////////////////////
@@ -96,10 +97,15 @@ $badge-navbar-bg-color: rgba($black, 0.5);
 $loading-overlay-color: rgba($cod-grey, 0.75);
 $loading-line-color: $havelock-blue;
 
+// Form elements colors
+$switch-active-color  : $dodger-blue;
+$switch-inactive-color: $silver;
+$switch-slider-color  : $white;
+
 // file-manager colors
 $fm-item-icon-color: $polo-blue;
 $fm-item-name-color: $science-blue;
 
-$fu-clickable-color: $hawkes-blue;
-$fu-details-color: $empress;
+$fu-clickable-color     : $hawkes-blue;
+$fu-details-color       : $empress;
 $fu-details-status-color: $tundora;

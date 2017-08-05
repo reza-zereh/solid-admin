@@ -18,6 +18,12 @@
         <sa-textarea label="Sa Textarea1" v-model="text" color='danger' :required="true" text-align="right"></sa-textarea>
 
         <sa-textarea label="Sa Textarea2" v-model="text" color="success" flow="horizontal" ></sa-textarea>
+
+        <sa-switch >Primary</sa-switch>
+        <sa-switch type="info">Info</sa-switch>
+        <sa-switch type="success">Success</sa-switch>
+        <sa-switch type="warning">Warning</sa-switch>
+        <sa-switch type="danger">Danger</sa-switch>
       </sa-tab>
 
       <sa-tab name="2nd Pane">
@@ -109,13 +115,15 @@ import SaInput from '../features/form/SaInput.vue';
 import SaTextarea from '../features/form/SaTextarea.vue';
 import SaTabs from '../features/tab/SaTabs.vue';
 import SaTab from '../features/tab/SaTabPane.vue';
+import SaSwitch from '../features/form/SaSwitch.vue';
 
 export default {
   components: {
-    'sa-input': SaInput,
+    'sa-input'   : SaInput,
     'sa-textarea': SaTextarea,
-    'sa-tabs': SaTabs,
-    'sa-tab': SaTab
+    'sa-tabs'    : SaTabs,
+    'sa-tab'     : SaTab,
+    'sa-switch'  : SaSwitch
   },
 
   data() {
