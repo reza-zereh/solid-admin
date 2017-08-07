@@ -409,17 +409,16 @@ body {
   input:checked+.sa-switch-slider.is-info {
     background-color: $switch-active-color;
   }
-
   
-
-
-
   input:checked+.sa-switch-slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform    : translateX(26px);
     transform        : translateX(26px);
   }
 
+  input:disabled+.sa-switch-slider {
+    cursor: not-allowed;
+  }
   /* Rounded sliders */
   .sa-switch-slider.sa-switch-round {
     border-radius: 34px;
