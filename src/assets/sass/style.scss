@@ -454,3 +454,13 @@ body {
     }
   }
 }
+
+/** Table
+================================================================ */
+ table.sa-table-rtl {
+    @extend .rtl;
+    td {
+      // @extend .text-align-right;
+      text-align: right;
+    }
+}
