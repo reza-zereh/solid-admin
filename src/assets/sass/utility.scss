@@ -14,3 +14,12 @@
 .text-align-left {
   text-align: left !important;
 }
+
+.fixed { position: fixed !important; }
+.absolute { position: absolute !important; }
+.relative { position: relative !important; }
+.static { position: static !important; }
+
+.flex { display: flex !important; }
+
+.height-100 { height: 100% !important; }

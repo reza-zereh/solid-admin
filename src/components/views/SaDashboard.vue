@@ -4,6 +4,9 @@
     <button class="button is-primary" @click="showModal()">Show Message Modal</button>
 
     <button class="button is-info" @click="showRegularModal = true">Show Regular Modal</button>
+
+    <button class="button is-danger" @click="showNotification()">Show Notification</button>
+
     <sa-modal title="Custom title"
             content="Is this going well?"
             :show-header="true"
@@ -19,6 +22,8 @@
             v-if="showRegularModal"
     >
     </sa-modal>  
+
+    <div id="notification_wrapper"></div>
   </div>
 </template>
 
@@ -59,6 +64,13 @@ export default {
         onOk: this.onModalOk,
         onCancel: this.onModalCancel,
         closeIn: 4
+      });
+    },
+
+    showNotification() {
+      this.$notification.open({
+        content: 'Simple notification Simple notification Simple notification',
+        // type: 'info'
       });
     }
   }

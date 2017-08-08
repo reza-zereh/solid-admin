@@ -21,8 +21,12 @@ import { store } from './store/store';
 
 // Import modal component and registers it as global component
 // to be accessible in all other components
-import Modal from './components/features/modal';
-Vue.prototype.$modal = Modal;
+import SaModal from './components/features/modal';
+Vue.prototype.$modal = SaModal;
+
+// Import notification component and register it as global component
+import SaNotification from './components/features/notification';
+Vue.prototype.$notification = SaNotification;
 
 new Vue({
   el: '#app',
