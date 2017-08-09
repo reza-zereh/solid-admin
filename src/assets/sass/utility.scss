@@ -1,25 +1,50 @@
 /**
 * Direction
 ****************************************************************************/
-.ltr {
-  direction: ltr !important;
-}
-.rtl {
-  direction: rtl !important;
-}
+.ltr { direction: ltr !important; }
+.rtl { direction: rtl !important; }
+.text-align-right { text-align: right !important; }
+.text-align-left { text-align: left !important; }
 
-.text-align-right {
-  text-align: right !important;
-}
-.text-align-left {
-  text-align: left !important;
-}
-
+/**
+* Position
+****************************************************************************/
 .fixed { position: fixed !important; }
 .absolute { position: absolute !important; }
 .relative { position: relative !important; }
 .static { position: static !important; }
 
+/**
+* Display
+****************************************************************************/
+.nodisplay { display: none !important; }
 .flex { display: flex !important; }
+.inline-flex { display: inline-flex !important; }
+.block { display: block !important; }
+.inline-block { display: inline-block !important; }
 
+/**
+* Flex
+****************************************************************************/
+.flex-row { flex-direction: row !important; }
+.flex-row-reverse { flex-direction: row-reverse !important; }
+.flex-column { flex-direction: column !important; }
+.flex-column-reverse { flex-direction: column-reverse !important; }
+.flex-justify-start { justify-content: flex-start !important; }
+.flex-justify-end { justify-content: flex-end !important; }
+.flex-justify-center { justify-content: center !important; }
+.flex-align-start { align-items: flex-start !important; }
+.flex-align-end { align-items: flex-end !important; }
+.flex-align-center { align-items: center !important; }
+
+/**
+* Width & height
+****************************************************************************/
+.width-100 { width: 100% !important; }
+.width-75 { width: 75% !important; }
+.width-50 { width: 50% !important; }
+.width-25 { width: 25% !important; }
 .height-100 { height: 100% !important; }
+.height-75 { height: 75% !important; }
+.height-50 { height: 50% !important; }
+.height-25 { height: 25% !important; }

@@ -5,7 +5,9 @@
 
     <button class="button is-info" @click="showRegularModal = true">Show Regular Modal</button>
 
-    <button class="button is-danger" @click="showNotification()">Show Notification</button>
+    <button class="button is-primary" @click="showNotification()">Primary Notification</button>
+
+    <button class="button is-danger" @click="showNotification2()">Danger Notification</button>
 
     <sa-modal title="Custom title"
             content="Is this going well?"
@@ -70,7 +72,14 @@ export default {
     showNotification() {
       this.$notification.open({
         content: 'Simple notification Simple notification Simple notification',
-        // type: 'info'
+        width: 29
+      });
+    },
+
+    showNotification2() {
+      this.$notification.error({
+        content: 'Simple notification',
+        closeIn: 5
       });
     }
   }
