@@ -1,20 +1,17 @@
 <template>
   <!--
-    TODO: Improve alignment for mobile deveices
+    Container for notification component. It should be placed in 'App.vue'.
   -->
-  <div class="sa-notification-container">
-    <div class="columns height-100">
-      <div class="column is-offset-8 is-4">
-        <div class="tile sa-notification-column height-100" id="sa_notification_container">
-
-        </div>
-      </div>
-    </div>
+  <div class="sa-notification-container"  id="sa__notification__container"
+       :class="[isRtl ? 'flex-align-start' : 'flex-align-end']">
   </div>
 </template>
 
 <script>
+import isRtl from '../../global/mixin/isRtl.js';
+
 export default {
-  
+  name: 'NotificationContainer',
+  mixins: [ isRtl ]
 }
 </script>
