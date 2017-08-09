@@ -22,6 +22,7 @@
     <!-- Overlays here-->
     <section>
       <sa-loading v-if="showLoading"></sa-loading>
+      <sa-notification-container></sa-notification-container>
     </section>
   </div>
 </template>
@@ -33,6 +34,7 @@ import SaMainContent from './components/layout/content/SaMainContent.vue';
 import SaSearch from './components/layout/search/SaSearch.vue';
 import SaLockScreen from './components/layout/overlay/SaLockScreen.vue';
 import SaLoading from './components/layout/overlay/SaLoading1.vue';
+import SaNotificationContainer from './components/features/notification/SaNotificationContainer.vue';
 
 export default {
   components: {
@@ -41,7 +43,8 @@ export default {
     'sa-content':     SaMainContent,
     'sa-search':      SaSearch,
     'sa-lock-screen': SaLockScreen,
-    'sa-loading':     SaLoading
+    'sa-loading':     SaLoading,
+    'sa-notification-container': SaNotificationContainer
   },
 
   data() {

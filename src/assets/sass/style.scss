@@ -464,3 +464,26 @@ body {
       text-align: right;
     }
 }
+
+/** Notification
+================================================================ */
+.sa-notification-container {
+  @extend .fixed;
+  @extend .flex;
+  @extend .flex-column-reverse;
+  top   : 0;
+  bottom: 0;
+  left  : 0;
+  right : 0;
+  padding: 1rem;
+  pointer-events: none;
+  z-index: 5;
+
+  .sa-notification {
+    @extend .inline-block;
+    margin: 0.5rem 0;
+    .delete {
+      pointer-events: auto;
+    }
+  }
+}
