@@ -1,0 +1,38 @@
+{
+  "nodes": [
+    { "type": "label", "text": "General" },
+
+    { 
+      "type": "menu",
+      "items": [
+        { "to": "/", "icon": "fa-tachometer", "router-link": true, "text": "Dashboard" },
+        { "to": "/form", "icon": "fa-file-text-o", "router-link": true, "text": "Form" },
+        { "to": "/mails", "icon": "fa-envelope-o", "router-link": true, "text": "Mails" }
+      ]
+    },
+
+    { "type": "label", "text": "Administration" },
+
+    {
+      "type": "menu",
+      "items": [
+        {
+          "type": "submenu", "text": "System", "icon": "fa-cog",
+          "items": [
+            { "to": "/", "icon": "fa-tachometer", "router-link": true, "text": "Settings" },
+            { "to": "/", "icon": "fa-envelope", "router-link": true, "text": "Mails" }
+          ]
+        },
+
+        {
+          "type": "submenu", "text": "Catalog", "icon": "fa-tags",
+          "items": [
+            { "to": "/categories", "icon": "fa-file-text-o", "text": "Categories" }
+          ]
+        }
+      ]
+    }
+
+  ]
+
+}

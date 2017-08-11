@@ -50,7 +50,7 @@
 <script>
 import SaSidebarLabel from './SaSidebarLabel.vue';
 import SaSidebarMenu from './SaSidebarMenu.vue';
-import SaSidebarMenuItem from './SaSidebarMenuItem.vue';
+import SaSidebarItem from './SaSidebarItem.vue';
 import SaSidebarSubmenu from './SaSidebarSubmenu.vue';
 import SaSidebarUserView from './SaSidebarUserView.vue';
 
@@ -59,7 +59,7 @@ export default {
   components: {
     'sa-sidebar-label': SaSidebarLabel,
     'sa-sidebar-menu': SaSidebarMenu,
-    'sa-sidebar-menuitem': SaSidebarMenuItem,
+    'sa-sidebar-menuitem': SaSidebarItem,
     'sa-sidebar-submenu': SaSidebarSubmenu,
     'sa-sidebar-userview': SaSidebarUserView
   },
