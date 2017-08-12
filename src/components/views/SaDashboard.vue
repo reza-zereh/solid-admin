@@ -79,7 +79,8 @@ export default {
     showNotification2() {
       this.$notification.error({
         content: 'Simple notification',
-        closeIn: 5
+        closeIn: 5,
+        showClose: false
       });
     }
   }
