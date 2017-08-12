@@ -7,16 +7,17 @@
       methods: open, info, error, success, warning
 
     Props:
-      content: content to display
-      type   : notification type (primary, success, info, warning, danger)
-      closeIn: auto close notification in specified seconds. (default: 3)
-      width  : width of notification in percentage
+      content  : content to display
+      type     : notification type (primary, success, info, warning, danger)
+      closeIn  : auto close notification in specified seconds. (default: 3)
+      width    : width of notification in percentage
+      showClose: display close button or not
 
     TODO: Add transition effect
     TODO: Build documentation
   -->
-    <div class="notification sa-notification" :class="[typeClass]" :style="widthSize">
-      <button class="delete" @click="close"></button>
+    <div class="notification sa-notification" :class="[typeClass, showClose ? '' : 'p1_25']" :style="widthSize">
+      <button class="delete" @click="close" v-if="showClose"></button>
       <p>
         {{ content }}
       </p>
@@ -27,10 +28,6 @@
 export default {
   name: 'Notification',
   props: {
-    parentId: {
-      type   : String,
-      default: 'sa__notification__container'
-    },
     content: {
       type   : String,
       default: ''
@@ -46,8 +43,16 @@ export default {
     width: {
       type   : Number,
       default: null
+    },
+    showClose: {
+      type   : Boolean,
+      default: true
     }
   },
+
+  data: () => ({
+    parentId: 'sa__notification__container'
+  }),
 
   computed: {
     typeClass() {
@@ -59,7 +64,6 @@ export default {
         return `width: ${this.width}%;`;
       }
     }
-
   },
 
   methods: {

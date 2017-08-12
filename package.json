@@ -1,7 +1,7 @@
 {
   "name": "solid-admin",
   "description": "A simple admin panel based on Vue.js and Bulma css framework.",
-  "version": "0.26.2",
+  "version": "0.26.3",
   "author": "M. Reza Zerehpoosh <ironcladgeek@hotmail.com>",
   "private": true,
   "scripts": {
