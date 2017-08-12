@@ -19,12 +19,13 @@
 
         <sa-textarea label="Sa Textarea2" v-model="text" color="success" flow="horizontal" ></sa-textarea>
 
-        <sa-switch v-model="checked2" id="qwe">Primary</sa-switch>
+        <sa-switch v-model="checked1" id="qwe">Primary</sa-switch>
         <sa-switch type="info" id="zxc">Info</sa-switch>
-        <sa-switch type="success" id="sdf" :checked="true">Success</sa-switch>
+        <sa-switch type="success" id="sdf" v-model="checked2">Success</sa-switch>
         <sa-switch type="warning">Warning</sa-switch>
         <sa-switch type="danger">Danger</sa-switch>
-        <p>{{ checked2 }}</p>
+        <p>Checked1: {{ checked1 }}</p>
+        <p>Checked2: {{ checked2 }}</p>
       </sa-tab>
 
       <sa-tab name="2nd Pane">
@@ -131,7 +132,8 @@ export default {
     return {
       content: 'Freebie',
       text   : 'lorem ipsum switch borden ...',
-      checked2: true
+      checked1: true,
+      checked2: false
     }
   }
 }
