@@ -458,10 +458,17 @@ body {
 ================================================================ */
  table.sa-table-rtl {
     @extend .rtl;
-    td {
-      // @extend .text-align-right;
-      text-align: right;
-    }
+    th { text-align: right; }
+    th:last-child { text-align: left; }
+    td { text-align: right; }
+    td:last-child { text-align: left; }
+}
+table.sa-table-ltr {
+  @extend .ltr;
+  th { text-align: left; }
+  th:last-child { text-align: right; }
+  td { text-align: left; }
+  td:last-child { text-align: right; }
 }
 
 /** Notification
