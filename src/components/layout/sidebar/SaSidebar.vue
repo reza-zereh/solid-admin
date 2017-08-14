@@ -3,7 +3,8 @@
     Main sidebar component. Automatically place right or left side of screen based on `window.isRtl` setting.
     
     NOTE: Except <sa-sidebar-userview> and <sa-sidebar-label>, all other components should be placed within <sa-sidebar-menu> component.
-    TODO: Add transition effect for showing/hiding
+
+    TODO: Document the new way (dynamically) making sidebar's item 
   -->
   <div>
     <transition :name="isRtl ? 'sa-sidebar-rtl-anm' : 'sa-sidebar-ltr-anm'">
@@ -15,29 +16,52 @@
         >
         </sa-sidebar-userview>
   
-        <sa-sidebar-label>General</sa-sidebar-label>
-        <sa-sidebar-menu>
-          <sa-sidebar-menuitem to="/" fa-icon="fa-tachometer" :router-link="true" @click="dashboard()">Dashboard</sa-sidebar-menuitem>
-          <sa-sidebar-menuitem to="/form" fa-icon="fa-file-text-o" :router-link="true">Form</sa-sidebar-menuitem>
-          <sa-sidebar-menuitem to="/mails" fa-icon="fa-envelope-o" :router-link="false">Mails</sa-sidebar-menuitem>
-        </sa-sidebar-menu>
-  
-        <sa-sidebar-label>Administration</sa-sidebar-label>
-  
-        <sa-sidebar-menu>
-          <sa-sidebar-submenu heading="System" fa-icon="fa-cog">
-            <sa-sidebar-menuitem>Settings</sa-sidebar-menuitem>
-            <sa-sidebar-menuitem>Tools</sa-sidebar-menuitem>
-            <sa-sidebar-menuitem>Users</sa-sidebar-menuitem>
-          </sa-sidebar-submenu>
-  
-          <sa-sidebar-submenu heading="Catalog" fa-icon="fa-tags">
-            <sa-sidebar-menuitem>Categories</sa-sidebar-menuitem>
-            <sa-sidebar-menuitem>Products</sa-sidebar-menuitem>
-            <sa-sidebar-menuitem>Gift Cards</sa-sidebar-menuitem>
-            <sa-sidebar-menuitem>Vochers</sa-sidebar-menuitem>
-          </sa-sidebar-submenu>
-        </sa-sidebar-menu>
+        <!-- Rendering sidebar's items -->
+        <template v-for="(node, index) in items">
+          <!-- Sidebar's Label -->
+          <sa-sidebar-label v-if="node.type === 'label'" :key="index" :text="node.text"></sa-sidebar-label>
+
+          <!-- Sidebar's Menu  -->
+          <sa-sidebar-menu v-else-if="node.type === 'menu'" :key="index">
+
+            <template v-for="(item, tag) in node.items">
+              <!-- Sidebar's Label -->
+              <sa-sidebar-label v-if="item.type === 'label'" :key="tag" :text="item.text"></sa-sidebar-label>
+              <!-- Sidebar's Item (Hyperlink) -->
+              <sa-sidebar-menuitem v-else-if="item.type === 'link'" :key="tag"
+                                   :to="item.to" :text="item.text" :fa-icon="item.icon" 
+                                   :router-link="item.routerLink"
+              >
+              </sa-sidebar-menuitem>
+              <!-- Sidebar's SubMenu -->
+              <sa-sidebar-submenu v-else-if="item.type === 'submenu'" :key="tag"
+                                  :heading="item.text" :fa-icon="item.icon"
+              >
+                <!-- Sidebar's Item (Hyperlink) -->
+                <sa-sidebar-menuitem v-for="(leaf, iter) in item.items" :key="iter"
+                                     :to="leaf.to" :text="leaf.text" :fa-icon="leaf.icon" 
+                                     :router-link="leaf.routerLink"
+                >
+                </sa-sidebar-menuitem>
+              </sa-sidebar-submenu>
+
+            </template>
+          </sa-sidebar-menu>
+        </template>
+
+      <!-- Deprecated way of building sidebar's items:
+
+          <sa-sidebar-label>General</sa-sidebar-label>
+          <sa-sidebar-menu>
+            <sa-sidebar-menuitem to="/" fa-icon="fa-tachometer" :router-link="true" @click="dashboard()">Dashboard</sa-sidebar-menuitem>
+          </sa-sidebar-menu>
+    
+          <sa-sidebar-menu>
+            <sa-sidebar-submenu heading="System" fa-icon="fa-cog">
+              <sa-sidebar-menuitem>Settings</sa-sidebar-menuitem>
+            </sa-sidebar-submenu>
+          </sa-sidebar-menu>
+      -->
   
       </aside>
     </transition>
@@ -54,35 +78,33 @@ import SaSidebarMenuItem from './SaSidebarMenuItem.vue';
 import SaSidebarSubmenu from './SaSidebarSubmenu.vue';
 import SaSidebarUserView from './SaSidebarUserView.vue';
 
+import isRtl from '../../global/mixin/isRtl.js';
+import SidebarItems from '../../global/config/SidebarItems.js';
+
 export default {
   name: 'Sidebar',
+  mixins: [ isRtl ],
   components: {
-    'sa-sidebar-label': SaSidebarLabel,
-    'sa-sidebar-menu': SaSidebarMenu,
+    'sa-sidebar-label'   : SaSidebarLabel,
+    'sa-sidebar-menu'    : SaSidebarMenu,
     'sa-sidebar-menuitem': SaSidebarMenuItem,
-    'sa-sidebar-submenu': SaSidebarSubmenu,
+    'sa-sidebar-submenu' : SaSidebarSubmenu,
     'sa-sidebar-userview': SaSidebarUserView
   },
+
+  data: () => ({
+    items: SidebarItems
+  }),
 
   methods: {
     hideSidebar() {
       this.$store.commit('setSidebarVisibility', false);
-    },
-
-    // example method to show handling click event for 'sa-sidebar-menuitem' component
-    dashboard() {
-      console.log('dashboard clicked!');
     }
   },
 
   computed: {
     showSidebar() {
       return this.$store.state.showSidebar;
-    },
-
-    // Determines if the screen is right-to-left or not by reading its value from the global store
-    isRtl() {
-      return this.$store.state.isRtl;
     }
   }
 }
