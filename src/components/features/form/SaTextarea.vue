@@ -10,23 +10,28 @@
                      flow='horizontal/vertical'
                     :required='true/false'
                     text-align='left/right'
+                    :asterisk='true/false'
         >
         </sa-textarea>
 
         * 'label' property is the only required one
         * default flow     = 'vertical'
         * default required = 'false'
+        * default asterisk = 'false'
   -->
   <div class="field">
     <!--
       Template when textarea is vertical (default)
     -->
     <div class="field" :class="{'has-text-right': isRtl}" v-if="flow === 'vertical'">
-      <label class="label" :for="id">{{label}}</label>
+      <label class="label" :class="directionClass" :for="id">
+        <span>{{label}}</span>
+        <span class="has-text-danger" v-if="asterisk">&nbsp;&#42;</span>
+      </label>
       <p class="control">
         <textarea class="textarea" :name="name" :id="id" 
                   :placeholder="placeholder" :required="required"
-                  :class="[textAlignClass, ` is-${color}`]" :disabled="disabled" 
+                  :class="[textAlignClass, directionClass, ` is-${color}`]" :disabled="disabled" 
                   :value="value" @input="updateValue($event.target.value)" ref="input"
         >
         </textarea>
@@ -41,14 +46,17 @@
         v-else-if="flow === 'horizontal'"
     >
       <div class="field-label is-normal" :class="{'sa-form-horizontal-label': isRtl}">
-        <label class="label" :for="id">{{label}}</label>
+        <label class="label" :class="directionClass" :for="id">
+          <span>{{label}}</span>
+          <span class="has-text-danger" v-if="asterisk">&nbsp;&#42;</span>
+        </label>
       </div>
       <div class="field-body">
         <div class="field">
           <div class="control">
             <textarea class="textarea" :name="name" :id="id" 
                       :placeholder="placeholder" :required="required" 
-                      :class="[textAlignClass, ` is-${color}`]" :disabled="disabled"
+                      :class="[textAlignClass, directionClass, ` is-${color}`]" :disabled="disabled"
                       :value="value" @input="updateValue($event.target.value)" ref="input"
             >
             </textarea>

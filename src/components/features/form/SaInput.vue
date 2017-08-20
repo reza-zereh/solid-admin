@@ -12,6 +12,7 @@
                   :disabled='true/false'
                   :has-addon='true/false'
                   text-align='left/right'
+                  :asterisk='true/false'
         >
         </sa-input>
 
@@ -20,18 +21,22 @@
         * default flow      = 'vertical'
         * default required  = 'false'
         * default has-addon = 'false'
+        * default asterisk  = 'false'
   -->
   <div class="field">
     <!--
       Template when input is vertical (default)
     -->
     <div class="field" :class="{'has-text-right': isRtl}" v-if="flow === 'vertical'">
-      <label class="label" :for="id">{{label}}</label>
+      <label class="label" :class="directionClass" :for="id">
+        <span>{{label}}</span>
+        <span class="has-text-danger" v-if="asterisk">&nbsp;&#42;</span>
+      </label>
       <p class="control" :class="{'sa-input-addon': hasAddon}">
         <slot name="prepend" v-if="hasAddon"></slot>
         <input class="input" :type="type == 'number' ? 'number' : 'text'" 
                :name="name" :id="id" :placeholder="placeholder" :required="required"
-               :class="[textAlignClass, ` is-${color}`]" :disabled="disabled"
+               :class="[textAlignClass, directionClass, ` is-${color}`]" :disabled="disabled"
                :value="value" @input="updateValue($event.target.value)" ref="input"
         >
         <slot name="append" v-if="hasAddon"></slot>
@@ -46,7 +51,10 @@
         v-else-if="flow === 'horizontal'"
     >
       <div class="field-label is-normal" :class="{'sa-form-horizontal-label': isRtl}">
-        <label class="label" :for="id">{{label}}</label>
+        <label class="label" :class="directionClass" :for="id">
+          <span>{{label}}</span>
+          <span class="has-text-danger" v-if="asterisk">&nbsp;&#42;</span>
+        </label>
       </div>
       <div class="field-body">
         <div class="field">
@@ -54,7 +62,7 @@
             <slot name="prepend" v-if="hasAddon"></slot>
             <input class="input" :type="type == 'number' ? 'number' : 'text'" 
                   :name="name" :id="id" :placeholder="placeholder" :required="required"
-                  :class="[textAlignClass, ` is-${color}`]" :disabled="disabled"
+                  :class="[textAlignClass, directionClass, ` is-${color}`]" :disabled="disabled"
                   :value="value" @input="updateValue($event.target.value)" ref="input"
             >
             <slot name="append" v-if="hasAddon"></slot>

@@ -9,7 +9,8 @@ const TextInputMixin = {
     value      : { default : '' },
     color      : { default : '' },
     flow       : { default : 'vertical' },
-    textAlign  : { default : '', type   : String }
+    textAlign  : { default : '', type   : String },
+    asterisk   : { default : false, type: Boolean }
   },
 
   computed: {
@@ -32,6 +33,12 @@ const TextInputMixin = {
       }
       else if(this.textAlign === '' || this.textAlign === 'left') {
         return 'has-text-left';
+      }
+    },
+    
+    directionClass() {
+      if (this.isRtl) {
+        return 'rtl';
       }
     }
   },
