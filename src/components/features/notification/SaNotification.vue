@@ -16,12 +16,18 @@
         TODO: Add transition effect
         TODO: Build documentation
       -->
-  <div class="notification sa-notification" :class="[typeClass, showClose ? '' : 'p1_25']" :style="widthSize">
-    <button class="delete" @click="close" v-if="showClose"></button>
-    <p>
-      {{ content }}
-    </p>
-  </div>
+  <transition name="sa-notification-anm">
+    <div class="notification sa-notification" 
+        :class="[typeClass, showClose ? '' : 'p1_25']" 
+        :style="widthSize"
+        v-if="active"
+    >
+      <button class="delete" @click="close" v-if="showClose"></button>
+      <p>
+        {{ content }}
+      </p>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -52,7 +58,8 @@ export default {
 
   data: () => ({
     parentId: 'sa__notification__container',
-    isClosed: false
+    isClosed: false,
+    active: false
   }),
 
   computed: {
@@ -72,7 +79,12 @@ export default {
     close() {
       if (!this.isClosed) {
         this.isClosed = true;
-        document.getElementById(this.parentId).removeChild(this.$el);
+        this.active = false;
+
+        // Pospone removing element from DOM to transition effect ends
+        setTimeout(() => {
+          document.getElementById(this.parentId).removeChild(this.$el);
+        }, 300);
       }
     },
 
@@ -85,6 +97,8 @@ export default {
   },
 
   mounted() {
+    this.active = true;
+
     // Append notification element to the DOM
     this.$nextTick(() => {
       document.getElementById(this.parentId).appendChild(this.$el);
@@ -94,4 +108,3 @@ export default {
   }
 }
 </script>
-

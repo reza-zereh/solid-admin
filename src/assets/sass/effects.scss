@@ -51,3 +51,16 @@
 .sa-search-anm-leave-active {
   transition: transform 0.3s ease-in-out;
 }
+
+// notification transition effects
+// transition name: 'sa-notification-anm'
+// --------------------------------------------------------------------------------------------------------
+.sa-notification-anm-enter,
+.sa-notification-anm-leave-to {
+  opacity: 0;
+}
+
+.sa-notification-anm-enter-active,
+.sa-notification-anm-leave-active {
+  transition: opacity .3s ease-in-out;
+}
