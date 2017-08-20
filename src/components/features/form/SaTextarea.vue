@@ -37,7 +37,7 @@
       Template when textarea is horizontal
     -->
     <div class="field is-horizontal" 
-        :class="{'has-text-right sa-row-reverse sa-form-horizontal-label': isRtl}" 
+        :class="{'has-text-right sa-row-reverse': isRtl}" 
         v-else-if="flow === 'horizontal'"
     >
       <div class="field-label is-normal" :class="{'sa-form-horizontal-label': isRtl}">

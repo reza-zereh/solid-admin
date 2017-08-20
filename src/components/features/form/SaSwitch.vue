@@ -13,7 +13,7 @@
   <div class="sa-switch-container">
     <div class="sa-switch-wrapper" :class="{'sa-row-reverse': isRtl}">
       <label class="checkbox sa-switch">
-        <input type="checkbox" :id="id" 
+        <input type="checkbox" :id="id" :name="name"
                :checked="localChecked" @change="update($event.target.checked)" 
                :disabled="disabled" :value="value" ref="checkbox"
         >
@@ -42,6 +42,10 @@ export default {
   props: {
     id: {
       type: String
+    },
+    name: {
+      type: String,
+      default: ''
     },
     type: {
       type   : String,
