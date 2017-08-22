@@ -1,7 +1,11 @@
 /* custom scss rules */
-html,
-body {
+html {
   height: 100%;
+}
+
+body {
+  min-height: 100%;
+  background-color: $body-color;
 }
 
 .input:focus, textarea:focus, select:focus {
