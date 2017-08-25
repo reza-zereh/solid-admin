@@ -18,12 +18,13 @@
         * default flow     = 'vertical'
         * default required = 'false'
         * default asterisk = 'false'
+        * slot: 'help' for displaying help messages like errors
   -->
   <div class="field">
     <!--
       Template when textarea is vertical (default)
     -->
-    <div class="field" :class="{'has-text-right': isRtl}" v-if="flow === 'vertical'">
+    <div class="field" :class="[isRtl ? 'has-text-right' : '', directionClass]" v-if="flow === 'vertical'">
       <label class="label" :class="directionClass" :for="id">
         <span>{{label}}</span>
         <span class="has-text-danger" v-if="asterisk">&nbsp;&#42;</span>
@@ -31,11 +32,13 @@
       <p class="control">
         <textarea class="textarea" :name="name" :id="id" 
                   :placeholder="placeholder" :required="required"
-                  :class="[textAlignClass, directionClass, ` is-${color}`]" :disabled="disabled" 
+                  :class="[textAlignClass, ` is-${color}`]" :disabled="disabled" 
                   :value="value" @input="updateValue($event.target.value)" ref="input"
         >
         </textarea>
       </p>
+      
+      <slot name="help"></slot>
     </div>
 
     <!--
@@ -53,14 +56,16 @@
       </div>
       <div class="field-body">
         <div class="field">
-          <div class="control">
+          <div class="control" :class="[directionClass]">
             <textarea class="textarea" :name="name" :id="id" 
                       :placeholder="placeholder" :required="required" 
-                      :class="[textAlignClass, directionClass, ` is-${color}`]" :disabled="disabled"
+                      :class="[textAlignClass, ` is-${color}`]" :disabled="disabled"
                       :value="value" @input="updateValue($event.target.value)" ref="input"
             >
             </textarea>
           </div>
+          
+          <slot name="help"></slot>
         </div>
       </div>
     </div>
@@ -73,7 +78,7 @@ import TextInputMixin from './TextInputMixin.js';
 
 export default {
   name: 'Textarea',
-  mixins: [TextInputMixin]
+  mixins: [ TextInputMixin ]
 }
 </script>
 

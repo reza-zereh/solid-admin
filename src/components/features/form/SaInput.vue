@@ -22,12 +22,15 @@
         * default required  = 'false'
         * default has-addon = 'false'
         * default asterisk  = 'false'
+        * slot: 'prepend' for prepending an add-on to input field
+        * slot: 'append' for appending an add-on to input field
+        * slot: 'help' for displaying help messages like errors
   -->
   <div class="field">
     <!--
       Template when input is vertical (default)
     -->
-    <div class="field" :class="{'has-text-right': isRtl}" v-if="flow === 'vertical'">
+    <div class="field" :class="[isRtl ? 'has-text-right' : '', directionClass]" v-if="flow === 'vertical'">
       <label class="label" :class="directionClass" :for="id">
         <span>{{label}}</span>
         <span class="has-text-danger" v-if="asterisk">&nbsp;&#42;</span>
@@ -36,11 +39,13 @@
         <slot name="prepend" v-if="hasAddon"></slot>
         <input class="input" :type="type == 'number' ? 'number' : 'text'" 
                :name="name" :id="id" :placeholder="placeholder" :required="required"
-               :class="[textAlignClass, directionClass, ` is-${color}`]" :disabled="disabled"
+               :class="[textAlignClass, ` is-${color}`]" :disabled="disabled"
                :value="value" @input="updateValue($event.target.value)" ref="input"
         >
         <slot name="append" v-if="hasAddon"></slot>
       </p>
+      
+      <slot name="help"></slot>
     </div>
 
     <!--
@@ -57,16 +62,18 @@
         </label>
       </div>
       <div class="field-body">
-        <div class="field">
+        <div class="field" :class="[directionClass]">
           <div class="control" :class="{'sa-input-addon': hasAddon}">
             <slot name="prepend" v-if="hasAddon"></slot>
             <input class="input" :type="type == 'number' ? 'number' : 'text'" 
                   :name="name" :id="id" :placeholder="placeholder" :required="required"
-                  :class="[textAlignClass, directionClass, ` is-${color}`]" :disabled="disabled"
+                  :class="[textAlignClass, ` is-${color}`]" :disabled="disabled"
                   :value="value" @input="updateValue($event.target.value)" ref="input"
             >
             <slot name="append" v-if="hasAddon"></slot>
           </div>
+
+          <slot name="help"></slot>
         </div>
       </div>
     </div>
