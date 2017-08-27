@@ -79,6 +79,16 @@ export default {
     }
   },
 
+  watch: {
+    /**
+     * Watcher for 'checked' prop to update 'localChecked'
+     * Usefull when this component's v-model value is changing dynamically (not by clicking)
+     */
+    checked(newValue) {
+      this.localChecked = newValue;
+    }
+  },
+
   methods: {
     update(value) {
       this.localChecked = value;
