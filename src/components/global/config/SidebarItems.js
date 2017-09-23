@@ -71,13 +71,21 @@ const sidebarItems = [
         'routerLink': true,
         'text': 'Form'
       },
+      
       {
-        'type': 'link',
-        'to': '/mails',
-        'icon': 'fa-envelope-o',
-        'routerLink': false,
-        'text': 'Mails'
+        'type': 'submenu',
+        'text': 'UI Elements',
+        'icon': 'fa-th',
+        'items': [
+          {
+            'type': 'link',
+            'to': '/modals',
+            'routerLink': true,
+            'text': 'Modals'
+          }
+        ]
       }
+
     ]
   },
 

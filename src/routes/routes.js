@@ -8,10 +8,12 @@ Vue.use(VueRouter);
  */
 import SaDashboard from '../components/views/SaDashboard.vue';
 import SaForm from '../components/views/SaForm.vue';
+import ModalsView from '../components/views/ui-elements/ModalsView.vue';
 
 const routes = [
   { path: '/', component: SaDashboard},
-  { path: '/form', component: SaForm}
+  { path: '/form', component: SaForm},
+  { path: '/modals', component: ModalsView }
 ];
 
 /**

@@ -499,3 +499,26 @@ table.sa-table-ltr {
     }
   }
 }
+
+/** Box
+================================================================ */
+.sa-box {
+  padding: 0;
+
+  & .sa-box-header {
+    padding: 0.75rem 1.25rem 0.25rem;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    &.is-primary { border-bottom-color: $primary; }
+    &.is-info { border-bottom-color: $info; }
+    &.is-success { border-bottom-color: $success; }
+    &.is-warning { border-bottom-color: $warning; }
+    &.is-danger { border-bottom-color: $danger; }
+    &.is-dark { border-bottom-color: $dark; }
+    &.is-grey { border-bottom-color: $grey-light; }
+  }
+
+  & .sa-box-content {
+    padding: 1.25rem;
+  }
+}
