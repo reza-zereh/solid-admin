@@ -73,7 +73,7 @@ body {
     & a {
       display: block;
       padding: 5px 22px;
-      color: $top-navbar-dropdown-link-color;
+      color: $top-navbar-dropdown-link-color !important;
       &:hover {
         background-color: $top-navbar-dropdown-link-hover-bg-color;
       }
